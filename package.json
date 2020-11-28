@@ -7,7 +7,7 @@
     "lint": "eslint ./src/index.ts",
     "test": "echo \"Error: no test specified\" && exit 1",
     "env:common": "cross-env TS_NODE_PROJECT=\"tsconfig-for-webpack-config.json\"",
-    "dev": "yarn env:common webpack --mode=development serve --mode=development",
+    "dev": "yarn env:common webpack serve --mode=development",
     "build": "yarn env:common webpack --mode=production"
   },
   "author": "",
