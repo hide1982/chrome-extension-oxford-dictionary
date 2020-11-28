@@ -1,9 +1,9 @@
 {
-    "compilerOptions": {
-        "esModuleInterop": true,
-        "moduleResolution": "node",
-        "module": "CommonJS",
-        "target": "ES5",
-    }
+  "compilerOptions": {
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "module": "CommonJS",
+    "target": "ES5",
+  }
 }
 
