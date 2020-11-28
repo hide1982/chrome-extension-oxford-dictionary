@@ -10,7 +10,7 @@
     "noImplicitAny": true,
     "removeComments": true,
     "sourceMap": true,
-    "strict": true,
+    "strict": true
   },
   "include": ["src/**/*"],
   "exclude": ["node_modules", "dist", "**/*.spec.ts"]

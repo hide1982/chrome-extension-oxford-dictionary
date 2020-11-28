@@ -1,15 +1,15 @@
-import path from "path";
-import HtmlWebpackPlugin from "html-webpack-plugin";
-import _ from "lodash";
+import path from "path"
+import HtmlWebpackPlugin from "html-webpack-plugin"
+import _ from "lodash"
 
-import type { Configuration, RuleSetRule } from "webpack";
-import type { webpackTypes } from "./types";
+import type { Configuration, RuleSetRule } from "webpack"
+import type { webpackTypes } from "./types"
 
 const ruleTs: RuleSetRule = {
   test: /\.tsx?$/,
   use: "ts-loader",
   exclude: /node_modules/,
-};
+}
 
 const common: Configuration = {
   entry: "./src/index.ts",
@@ -24,9 +24,9 @@ const common: Configuration = {
     modules: ["node_modules", path.resolve(__dirname, "src")],
     extensions: [".ts", ".tsx", ".js", ".json", ".svg", "png"],
   },
-};
+}
 
-const prod: Configuration = {};
+const prod: Configuration = {}
 
 const dev: Configuration = {
   entry: {
@@ -47,18 +47,18 @@ const dev: Configuration = {
       filename: "index.html",
     }),
   ],
-};
+}
 
 const configurationFactory: webpackTypes.ConfigurationFactory = (env, args) => {
   if (args.mode === "development") {
-    return _.merge(common, dev);
+    return _.merge(common, dev)
   }
 
   if (args.mode === "production") {
-    return _.merge(common, prod);
+    return _.merge(common, prod)
   }
 
-  return common;
-};
+  return common
+}
 
-export default configurationFactory;
+export default configurationFactory
