@@ -1,6 +1,6 @@
 import React from "react"
 import FrameComponent, { FrameContextConsumer } from "react-frame-component"
-import styled from "styled-components"
+import styled, { StyleSheetManager } from "styled-components"
 
 interface Props {
   className?: string
@@ -12,7 +12,13 @@ const StyledFrame = styled(FrameComponent)`
 
 const Frame: React.FC<Props> = ({ className, children }) => (
   <StyledFrame className={className}>
-    <FrameContextConsumer>{() => children}</FrameContextConsumer>
+    <FrameContextConsumer>
+      {({ document }) => (
+        <StyleSheetManager target={document.head}>
+          <>{children}</>
+        </StyleSheetManager>
+      )}
+    </FrameContextConsumer>
   </StyledFrame>
 )
 
