@@ -11,6 +11,11 @@ const ruleTs: RuleSetRule = {
   exclude: /node_modules/,
 }
 
+const ruleSvg: RuleSetRule = {
+  test: /\.svg$/,
+  use: ["svg-url-loader"],
+}
+
 const common: Configuration = {
   entry: "./src/index.ts",
   output: {
@@ -18,7 +23,7 @@ const common: Configuration = {
     filename: "main.js",
   },
   module: {
-    rules: [ruleTs],
+    rules: [ruleTs, ruleSvg],
   },
   resolve: {
     modules: ["node_modules", path.resolve(__dirname, "src")],
