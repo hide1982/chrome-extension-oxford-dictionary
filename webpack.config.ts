@@ -2,8 +2,8 @@ import path from "path";
 import HtmlWebpackPlugin from "html-webpack-plugin";
 import _ from "lodash";
 
-import { Configuration, RuleSetRule } from "webpack";
-import { webpackTypes } from "./types";
+import type { Configuration, RuleSetRule } from "webpack";
+import type { webpackTypes } from "./types";
 
 const ruleTs: RuleSetRule = {
   test: /\.tsx?$/,
