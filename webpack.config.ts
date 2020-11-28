@@ -3,7 +3,7 @@ import HtmlWebpackPlugin from "html-webpack-plugin";
 import _ from "lodash";
 
 import { Configuration, RuleSetRule } from "webpack";
-import { webpackTypes } from "./@types";
+import { webpackTypes } from "./types";
 
 const ruleTs: RuleSetRule = {
   test: /\.tsx?$/,
