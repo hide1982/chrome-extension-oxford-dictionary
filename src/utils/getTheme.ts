@@ -1,6 +1,6 @@
 import { DARK_MODE_MEDIA_QUERY } from "constant"
-import { lightTheme, darkTheme } from "styles/Theme"
-import type { Theme } from "styles/Theme"
+import { lightTheme, darkTheme } from "styles/theme"
+import type { Theme } from "styles/theme"
 
 const isDarkMode = (): boolean =>
   window.matchMedia(DARK_MODE_MEDIA_QUERY).matches
