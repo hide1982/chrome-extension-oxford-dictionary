@@ -16,6 +16,7 @@ type IconName =
 
 interface Props {
   iconName: IconName
+  className?: string
 }
 
 type SvgComponent = React.FunctionComponent<React.SVGAttributes<SVGElement>>
@@ -42,7 +43,7 @@ const Container = styled.button`
   }
 `
 
-const IconButton: React.FC<Props> = ({ iconName }) => {
+const IconButton: React.FC<Props> = ({ iconName, className }) => {
   const [icon, setIcon] = useState<null | JSX.Element>(null)
 
   useEffect(() => {
@@ -56,7 +57,7 @@ const IconButton: React.FC<Props> = ({ iconName }) => {
     getIcon()
   }, [])
 
-  return <Container>{icon}</Container>
+  return <Container className={className}>{icon}</Container>
 }
 
 export default IconButton
