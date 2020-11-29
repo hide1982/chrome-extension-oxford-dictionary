@@ -24,7 +24,7 @@ const SearchBox = styled(TextField)`
   flex-grow: 1;
 `
 
-const Header: React.FC<Props> = ({ className }) => {
+const ControlBar: React.FC<Props> = ({ className }) => {
   return (
     <Container className={className}>
       <IconButton iconName="left-arrow" />
@@ -35,4 +35,4 @@ const Header: React.FC<Props> = ({ className }) => {
   )
 }
 
-export default Header
+export default ControlBar

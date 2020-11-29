@@ -13,7 +13,7 @@ export interface Theme {
       focus: string
     }
   }
-  border: {
+  borderColor: {
     main: string
   }
   input: {
@@ -55,7 +55,7 @@ export const lightTheme: Theme = {
       focus: lightColor.primaryDark,
     },
   },
-  border: {
+  borderColor: {
     main: lightColor.text,
   },
   input: {
@@ -73,7 +73,7 @@ export const darkTheme: Theme = {
     color: { main: darkColor.text },
     backgroundColor: { main: darkColor.primary, focus: darkColor.primaryLight },
   },
-  border: {
+  borderColor: {
     main: darkColor.text,
   },
   input: {
