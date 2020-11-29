@@ -16,11 +16,12 @@ const NextIconButton = styled(IconButton)`
 `
 
 const CloseIconButton = styled(IconButton)`
-  margin-left: auto;
+  margin-left: 16px;
 `
 
 const SearchBox = styled(TextField)`
-  margin-left: 24px;
+  margin-left: 16px;
+  flex-grow: 1;
 `
 
 const Header: React.FC<Props> = ({ className }) => {
