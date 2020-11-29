@@ -13,8 +13,18 @@ const DictionaryFrame = styled(Frame)`
 
 const Container = styled.div``
 
+const frameHead = (
+  <>
+    <link rel="preconnect" href="https://fonts.gstatic.com"></link>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;1,300&display=swap"
+      rel="stylesheet"
+    ></link>
+  </>
+)
+
 ReactDOM.render(
-  <DictionaryFrame>
+  <DictionaryFrame head={frameHead}>
     <ThemeProvider theme={getTheme()}>
       <ResetCss />
       <Container>

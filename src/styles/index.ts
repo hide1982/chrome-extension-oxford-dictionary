@@ -29,4 +29,4 @@ export const flexPosition = {
   `,
 }
 
-export const fontFamily = "Roboto"
+export const fontFamily = "Roboto, sans-serif"
