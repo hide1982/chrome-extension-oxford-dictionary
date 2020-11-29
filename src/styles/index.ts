@@ -28,3 +28,5 @@ export const flexPosition = {
     align-items: center;
   `,
 }
+
+export const fontFamily = "Roboto"

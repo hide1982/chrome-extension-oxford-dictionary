@@ -22,7 +22,7 @@ type SvgComponent = React.FunctionComponent<React.SVGAttributes<SVGElement>>
 
 const Container = styled.button`
   ${flexPosition.center}
-  background-color: ${({ theme }) => theme.icon.backgroundColor};
+  background-color: ${({ theme }) => theme.icon.backgroundColor.main};
   outline: none;
   border: none;
   width: 26px;
@@ -32,11 +32,11 @@ const Container = styled.button`
 
   :hover,
   :focus {
-    background-color: ${({ theme }) => theme.icon.backgroundColorHover};
+    background-color: ${({ theme }) => theme.icon.backgroundColor.focus};
   }
 
   .${SVG_THEME_CLASS_NAME} {
-    fill: ${({ theme }) => theme.icon.color};
+    fill: ${({ theme }) => theme.icon.color.main};
     width: 16px;
     height: 16px;
   }
