@@ -28,11 +28,3 @@ export const flexPosition = {
     align-items: center;
   `,
 }
-
-export const outline = css`
-  outline: none;
-
-  :focus {
-    outline: solid 1px #222;
-  }
-`

@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react"
 import styled from "styled-components"
 
-import { backgroundColor, border, flexPosition, outline } from "styles"
+import { flexPosition } from "styles"
 
-type Icon =
+const SVG_THEME_CLASS_NAME = "svg-theme"
+
+type IconName =
   | "close"
   | "delete"
   | "left-arrow"
@@ -13,42 +15,48 @@ type Icon =
   | "trash"
 
 interface Props {
-  icon: Icon
+  iconName: IconName
 }
 
+type SvgComponent = React.FunctionComponent<React.SVGAttributes<SVGElement>>
+
 const Container = styled.button`
-  ${backgroundColor.default}
-  ${border.default}
-  ${outline}
   ${flexPosition.center}
+  background-color: ${({ theme }) => theme.icon.backgroundColor};
+  outline: none;
+  border: none;
   width: 26px;
   height: 26px;
   padding: 0;
   cursor: pointer;
 
-  :hover {
-    ${backgroundColor.hover};
+  :hover,
+  :focus {
+    background-color: ${({ theme }) => theme.icon.backgroundColorHover};
+  }
+
+  .${SVG_THEME_CLASS_NAME} {
+    fill: ${({ theme }) => theme.icon.color};
+    width: 16px;
+    height: 16px;
   }
 `
 
-const Icon = styled.img`
-  width: 16px;
-  height: 16px;
-`
-
-const IconButton: React.FC<Props> = ({ icon }) => {
-  const [iconUrl, setIconUrl] = useState<null | string>(null)
+const IconButton: React.FC<Props> = ({ iconName }) => {
+  const [icon, setIcon] = useState<null | JSX.Element>(null)
 
   useEffect(() => {
     const getIcon = async () => {
-      const url = (await import(`images/${icon}.svg`)).default
-      setIconUrl(url)
+      const Icon: SvgComponent = (await import(`images/${iconName}.svg`))
+        .default
+      Icon.defaultProps = { className: SVG_THEME_CLASS_NAME }
+      setIcon(<Icon />)
     }
 
     getIcon()
   }, [])
 
-  return <Container>{iconUrl && <Icon src={iconUrl} />}</Container>
+  return <Container>{icon}</Container>
 }
 
 export default IconButton

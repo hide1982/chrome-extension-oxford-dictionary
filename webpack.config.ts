@@ -13,7 +13,11 @@ const ruleTs: RuleSetRule = {
 
 const ruleSvg: RuleSetRule = {
   test: /\.svg$/,
-  use: ["svg-url-loader"],
+  use: [
+    {
+      loader: "react-svg-loader",
+    },
+  ],
 }
 
 const common: Configuration = {
