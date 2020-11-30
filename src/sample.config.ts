@@ -1,0 +1,3 @@
+export const OXFORD_DICTIONARY_API_BASE_URL = ""
+export const OXFORD_DICTIONARY_APP_ID = ""
+export const OXFORD_DICTIONARY_APP_KEY = ""
