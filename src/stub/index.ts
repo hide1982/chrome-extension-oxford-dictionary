@@ -22,6 +22,16 @@ export const dictionaryStub: ResponseOxfordDictionary = {
           language: "en-us",
           lexicalCategory: { id: "id", text: "verb" },
           text: "text",
+          derivativeOf: [
+            {
+              domains: [{ id: "id", text: "test" }],
+              id: "id",
+              language: "en-us",
+              regions: [{ id: "id", text: "text" }],
+              registers: [{ id: "id", text: "text" }],
+              text: "text",
+            },
+          ],
           entries: [
             {
               etymologies: ["etymologies"],
