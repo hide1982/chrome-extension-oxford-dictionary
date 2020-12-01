@@ -15,13 +15,14 @@ type IconName =
   | "trash"
 
 interface Props {
+  onClick?: React.MouseEventHandler<HTMLButtonElement>
   iconName: IconName
   className?: string
 }
 
 type SvgComponent = React.FunctionComponent<React.SVGAttributes<SVGElement>>
 
-const Container = styled.button`
+const StyledButton = styled.button`
   ${flexPosition.center}
   background-color: ${({ theme }) => theme.icon.backgroundColor.main};
   outline: none;
@@ -43,7 +44,7 @@ const Container = styled.button`
   }
 `
 
-const IconButton: React.FC<Props> = ({ iconName, className }) => {
+const IconButton: React.FC<Props> = ({ iconName, onClick, className }) => {
   const [icon, setIcon] = useState<null | JSX.Element>(null)
 
   useEffect(() => {
@@ -56,8 +57,11 @@ const IconButton: React.FC<Props> = ({ iconName, className }) => {
 
     getIcon()
   }, [])
-
-  return <Container className={className}>{icon}</Container>
+  return (
+    <StyledButton className={className} onClick={onClick}>
+      {icon}
+    </StyledButton>
+  )
 }
 
 export default IconButton
