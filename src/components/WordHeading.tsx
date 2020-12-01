@@ -20,11 +20,6 @@ const Container = styled.div`
   border-bottom: solid 2px ${({ theme }) => theme.borderColor.main};
 `
 
-const Word = styled(Typography)`
-  font-size: 24px;
-  font-weight: bold;
-`
-
 const PhoneticSpelling = styled(Typography)`
   margin-left: 16px;
 `
@@ -43,7 +38,9 @@ const WordHeading: React.FC<Props> = ({ values }) => {
 
   return (
     <Container>
-      <Word>{word}</Word>
+      <Typography size={24} weight="bold">
+        {word}
+      </Typography>
       <PhoneticSpelling>{phoneticSpelling}</PhoneticSpelling>
       <SpeakerIconButton iconName="speaker" onClick={playAudio(audioFile)} />
     </Container>
