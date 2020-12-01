@@ -41,6 +41,9 @@ const StyledTypography = styled.p<Props>`
   color: ${({ fontColor, theme }) => fontColor ?? theme.fontColor.main};
 `
 
-const Typography: React.FC<Props> = (props) => <StyledTypography {...props} />
+const Typography: React.FC<Props> = ({
+  fontSize = DEFAULT_FONT_SIZE,
+  ...props
+}) => <StyledTypography fontSize={fontSize} {...props} />
 
 export default Typography
