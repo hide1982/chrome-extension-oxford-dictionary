@@ -38,7 +38,7 @@ const WordHeading: React.FC<Props> = ({ values }) => {
 
   return (
     <Container>
-      <Typography size={24} weight="bold">
+      <Typography fontSize={24} fontWeight="bold">
         {word}
       </Typography>
       <PhoneticSpelling>{phoneticSpelling}</PhoneticSpelling>

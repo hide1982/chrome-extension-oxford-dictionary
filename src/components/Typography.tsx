@@ -6,10 +6,10 @@ import { isNumber } from "lodash"
 const DEFAULT_FONT_SIZE = 16
 
 interface Props {
-  size?: number | string
-  style?: "normal" | "italic" | "oblique"
-  color?: string
-  weight?:
+  fontSize?: number | string
+  fontStyle?: "normal" | "italic" | "oblique"
+  fontColor?: string
+  fontWeight?:
     | "normal"
     | "bold"
     | "bolder"
@@ -28,38 +28,19 @@ interface Props {
   className?: string
 }
 
-interface StyledTypographyProps
-  extends Pick<Props, "size" | "style" | "weight"> {
-  fontColor: Props["color"]
-}
-
-const formatFontSizeValue = (size: Props["size"]) => {
+const formatFontSizeValue = (size: Props["fontSize"]) => {
   if (isNumber(size)) return `${size}px`
 
   return size
 }
 
-const StyledTypography = styled.p<StyledTypographyProps>`
+const StyledTypography = styled.p<Props>`
   font-family: ${fontFamily};
-  font-size: ${({ size }) => formatFontSizeValue(size)};
-  font-weight: ${({ weight }) => weight};
-  color: ${({ color, theme }) => color ?? theme.fontColor.main};
+  font-size: ${({ fontSize }) => formatFontSizeValue(fontSize)};
+  font-weight: ${({ fontWeight }) => fontWeight};
+  color: ${({ fontColor, theme }) => fontColor ?? theme.fontColor.main};
 `
 
-const Typography: React.FC<Props> = ({
-  size = DEFAULT_FONT_SIZE,
-  style = "normal",
-  weight = "normal",
-  color,
-  className,
-}) => (
-  <StyledTypography
-    size={size}
-    style={style}
-    weight={weight}
-    fontColor={color}
-    className={className}
-  />
-)
+const Typography: React.FC<Props> = (props) => <StyledTypography {...props} />
 
 export default Typography
