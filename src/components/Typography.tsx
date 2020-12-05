@@ -38,6 +38,7 @@ const StyledTypography = styled.p<Props>`
   font-family: ${fontFamily};
   font-size: ${({ fontSize }) => formatFontSizeValue(fontSize)};
   font-weight: ${({ fontWeight }) => fontWeight};
+  font-style: ${({ fontStyle }) => fontStyle};
   color: ${({ fontColor, theme }) => fontColor ?? theme.fontColor.main};
 `
 
