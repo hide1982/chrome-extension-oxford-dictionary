@@ -40,6 +40,7 @@ export const dictionaryStub: ResponseOxfordDictionary = {
                 {
                   id: "id",
                   shortDefinitions: ["shortDefinitions"],
+                  definitions: ["definitions"],
                   examples: [
                     {
                       definitions: ["definitions"],
