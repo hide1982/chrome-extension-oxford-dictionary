@@ -91,7 +91,7 @@ interface Inflection {
   registers?: BasicValue[]
 }
 
-interface Entry {
+export interface Entry {
   crossReferenceMarkers?: string[]
   crossReferences?: BasicValueWithType[]
   etymologies: string[]
@@ -103,7 +103,7 @@ interface Entry {
   senses?: Sense[]
 }
 
-interface LexicalEntry {
+export interface LexicalEntry {
   compounds?: BasicValueGroup[]
   derivativeOf?: BasicValueGroup[]
   derivatives?: BasicValueGroup[]
