@@ -9,8 +9,18 @@ interface Props {
 
 const SHOW_ENTRY_INDEX = 0
 
+const Sense = styled.div`
+  & + & {
+    margin-top: 8px;
+  }
+`
+
 const Definition = styled.div`
   display: flex;
+`
+
+const DefinitionIndex = styled(Typography)`
+  margin-right: 4px;
 `
 
 const Entries: React.FC<{ value: Entry[] }> = ({ value: entries }) => {
@@ -21,9 +31,9 @@ const Entries: React.FC<{ value: Entry[] }> = ({ value: entries }) => {
   return (
     <div>
       {senses.map((sense, i) => (
-        <div key={i.toString()}>
+        <Sense key={i.toString()}>
           <Definition>
-            <Typography fontWeight="bold">{i + 1}</Typography>
+            <DefinitionIndex fontWeight="bold">{i + 1}.</DefinitionIndex>
             <div>
               {sense.definitions && (
                 <Typography fontWeight="bold">
@@ -36,7 +46,7 @@ const Entries: React.FC<{ value: Entry[] }> = ({ value: entries }) => {
                 ))}
             </div>
           </Definition>
-        </div>
+        </Sense>
       ))}
     </div>
   )
