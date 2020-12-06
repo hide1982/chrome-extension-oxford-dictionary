@@ -1,5 +1,7 @@
 import path from "path"
 import HtmlWebpackPlugin from "html-webpack-plugin"
+import { CleanWebpackPlugin } from "clean-webpack-plugin"
+import CopyWebpackPlugin from "copy-webpack-plugin"
 import _ from "lodash"
 
 import type { Configuration, RuleSetRule } from "webpack"
@@ -15,7 +17,7 @@ const ruleSvg: RuleSetRule = {
   test: /\.svg$/,
   use: [
     {
-      loader: "react-svg-loader",
+      loader: "@svgr/webpack",
     },
   ],
 }
@@ -24,20 +26,20 @@ const common: Configuration = {
   entry: "./src/index.ts",
   output: {
     path: path.resolve(__dirname, "dist"),
-    filename: "main.js",
+    filename: "[name].js",
   },
   module: {
     rules: [ruleTs, ruleSvg],
   },
   resolve: {
     modules: ["node_modules", path.resolve(__dirname, "src")],
-    extensions: [".ts", ".tsx", ".js", ".json", ".svg", "png"],
+    extensions: [".ts", ".tsx", ".js", ".json", ".svg", ".png"],
   },
 }
 
 const prod: Configuration = {}
 
-const dev: Configuration = {
+const devServe: Configuration = {
   entry: {
     app: "./src/App.tsx",
   },
@@ -58,8 +60,32 @@ const dev: Configuration = {
   ],
 }
 
+const dev: Configuration = {
+  entry: {
+    app: "./src/App.tsx",
+    background: "./src/background.ts",
+  },
+  plugins: [
+    new CleanWebpackPlugin(),
+    new CopyWebpackPlugin({
+      patterns: [
+        {
+          from: "src/manifest.json",
+        },
+        {
+          from: "images/*",
+        },
+      ],
+    }),
+  ],
+}
+
 const configurationFactory: webpackTypes.ConfigurationFactory = (env, args) => {
   if (args.mode === "development") {
+    if (env && env["WEBPACK_SERVE"]) {
+      return _.merge(common, devServe)
+    }
+
     return _.merge(common, dev)
   }
 
