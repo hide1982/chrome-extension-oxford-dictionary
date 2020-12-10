@@ -2,8 +2,9 @@ import React from "react"
 import ReactDOM from "react-dom"
 import styled, { ThemeProvider } from "styled-components"
 
-import ResetCss from "styles/ResetCss"
 import Frame from "components/Frame"
+import Dictionary from "components/Dictionary"
+import ResetCss from "styles/ResetCss"
 import getTheme from "utils/getTheme"
 
 const DictionaryFrame = styled(Frame)`
@@ -23,14 +24,17 @@ const frameHead = (
   </>
 )
 
+const entryPoint = document.createElement("div")
+document.body.appendChild(entryPoint)
+
 ReactDOM.render(
   <DictionaryFrame head={frameHead}>
     <ThemeProvider theme={getTheme()}>
       <ResetCss />
       <Container>
-        <p>Oxford dictionary chrome extension</p>
+        <Dictionary />
       </Container>
     </ThemeProvider>
   </DictionaryFrame>,
-  document.getElementById("root")
+  entryPoint
 )

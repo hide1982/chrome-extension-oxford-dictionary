@@ -1,5 +1,30 @@
 import { ResponseOxfordDictionary } from "types"
 
+const sense = {
+  id: "id",
+  shortDefinitions: ["shortDefinitions"],
+  definitions: ["definitions"],
+  examples: [
+    {
+      definitions: ["definitions"],
+      domains: [{ id: "id", text: "text" }],
+      notes: [
+        {
+          domains: [{ id: "id", text: "test" }],
+          id: "id",
+          language: "en-us",
+          regions: [{ id: "id", text: "text" }],
+          registers: [{ id: "id", text: "text" }],
+          text: "text",
+        },
+      ],
+      registers: [{ id: "id", text: "text" }],
+      senseIds: ["id"],
+      text: "text",
+    },
+  ],
+}
+
 export const dictionaryStub: ResponseOxfordDictionary = {
   metadata: "metadata",
   query: "query",
@@ -36,32 +61,7 @@ export const dictionaryStub: ResponseOxfordDictionary = {
             {
               etymologies: ["etymologies"],
               inflections: [{ inflectedForm: "inflectedForm" }],
-              senses: [
-                {
-                  id: "id",
-                  shortDefinitions: ["shortDefinitions"],
-                  definitions: ["definitions"],
-                  examples: [
-                    {
-                      definitions: ["definitions"],
-                      domains: [{ id: "id", text: "text" }],
-                      notes: [
-                        {
-                          domains: [{ id: "id", text: "test" }],
-                          id: "id",
-                          language: "en-us",
-                          regions: [{ id: "id", text: "text" }],
-                          registers: [{ id: "id", text: "text" }],
-                          text: "text",
-                        },
-                      ],
-                      registers: [{ id: "id", text: "text" }],
-                      senseIds: ["id"],
-                      text: "text",
-                    },
-                  ],
-                },
-              ],
+              senses: [sense, sense, sense],
             },
           ],
         },
