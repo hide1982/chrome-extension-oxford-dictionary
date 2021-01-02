@@ -1,9 +1,10 @@
 import React from "react"
 import styled from "styled-components"
+import Icon, {
+  IconName,
+} from "@bit/hide1982.react-chrome-extension-components.icon"
 
 import { flexPosition } from "styles"
-
-import Icon, { IconName } from "./Icon"
 
 interface Props {
   onClick?: React.MouseEventHandler<HTMLButtonElement>
@@ -30,7 +31,7 @@ const StyledButton = styled.button`
 const IconButton: React.FC<Props> = ({ iconName, onClick, className }) => {
   return (
     <StyledButton className={className} onClick={onClick}>
-      <Icon name={iconName} />
+      <Icon name={iconName} width={16} height={16} color="#fff" />
     </StyledButton>
   )
 }

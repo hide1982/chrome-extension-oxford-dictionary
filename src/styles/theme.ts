@@ -39,11 +39,17 @@ const lightColor: ThemeColor = {
 }
 
 const darkColor: ThemeColor = {
-  primary: "#212121",
-  primaryLight: "#484848",
-  primaryDark: "#000",
-  text: "#fff",
+  primary: "#fafafa",
+  primaryLight: "#fff",
+  primaryDark: "#c7c7c7",
+  text: "#000",
 }
+// const darkColor: ThemeColor = {
+//   primary: "#212121",
+//   primaryLight: "#484848",
+//   primaryDark: "#000",
+//   text: "#fff",
+// }
 
 export const lightTheme: Theme = {
   backgroundColor: { main: lightColor.primary, focus: lightColor.primaryLight },

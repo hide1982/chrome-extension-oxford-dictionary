@@ -1,7 +1,7 @@
 import React from "react"
 import styled from "styled-components"
-import IconButton from "./IconButton"
-import TextField from "./TextField"
+import IconButton from "@bit/hide1982.react-chrome-extension-components.icon-button"
+import TextField from "@bit/hide1982.react-chrome-extension-components.text-field"
 
 interface Props {
   className?: string
@@ -11,26 +11,18 @@ const Container = styled.div`
   display: flex;
   align-items: center;
 `
-const NextIconButton = styled(IconButton)`
-  margin-left: 16px;
-`
 
-const CloseIconButton = styled(IconButton)`
-  margin-left: 16px;
-`
-
-const SearchBox = styled(TextField)`
-  margin-left: 16px;
-  flex-grow: 1;
+const StyledTextField = styled(TextField)`
+  transition: background-color 300ms;
 `
 
 const ControlBar: React.FC<Props> = ({ className }) => {
   return (
     <Container className={className}>
-      <IconButton iconName="left-arrow" />
-      <NextIconButton iconName="right-arrow" />
-      <SearchBox />
-      <CloseIconButton iconName="close" />
+      <IconButton name="leftArrow" />
+      <IconButton name="rightArrow" />
+      <StyledTextField />
+      <IconButton name="close" />
     </Container>
   )
 }
