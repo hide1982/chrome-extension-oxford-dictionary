@@ -1,8 +1,6 @@
 import React from "react"
 import styled from "styled-components"
-import Icon, {
-  IconName,
-} from "@bit/hide1982.react-chrome-extension-components.icon"
+import Icon, { IconName } from "@bit/hide1982.react-components.icon"
 
 import { flexPosition } from "styles"
 

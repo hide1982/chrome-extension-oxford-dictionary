@@ -43,10 +43,10 @@
     "webpack-dev-server": "^3.11.0"
   },
   "dependencies": {
-    "@bit/hide1982.react-chrome-extension-components.button": "^0.0.12",
-    "@bit/hide1982.react-chrome-extension-components.icon": "^0.0.12",
-    "@bit/hide1982.react-chrome-extension-components.icon-button": "^0.0.13",
-    "@bit/hide1982.react-chrome-extension-components.text-field": "^0.0.12",
+    "@bit/hide1982.react-components.button": "^1.0.0",
+    "@bit/hide1982.react-components.icon": "^1.0.0",
+    "@bit/hide1982.react-components.icon-button": "^1.0.0",
+    "@bit/hide1982.react-components.text-field": "^1.0.0",
     "@bit/mui-org.material-ui.svg-icon": "^4.9.10",
     "lodash": "^4.17.20",
     "react": "^17.0.1",

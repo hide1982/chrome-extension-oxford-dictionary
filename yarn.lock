@@ -907,120 +907,120 @@
     lodash "^4.17.19"
     to-fast-properties "^2.0.0"
 
-"@bit/hide1982.react-chrome-extension-components.button-base@0.0.12":
-  version "0.0.12"
-  resolved "https://node.bit.dev/hide1982.react-chrome-extension-components.button-base/-/hide1982.react-chrome-extension-components.button-base-0.0.12.tgz#8b709529bd6e8f944ed0426a76f87240189a7179"
-  integrity sha1-i3CVKb1uj5RO0EJqdvhyQBiacXk=
+"@bit/hide1982.react-components.button-base@1.0.0":
+  version "1.0.0"
+  resolved "https://node.bit.dev/hide1982.react-components.button-base/-/hide1982.react-components.button-base-1.0.0.tgz#564d23021048b09eb0c2871c44fff81eca748e13"
+  integrity sha1-Vk0jAhBIsJ6wwoccRP/4Hsp0jhM=
   dependencies:
-    "@bit/hide1982.react-chrome-extension-components.types" "0.0.12"
-    "@bit/hide1982.react-chrome-extension-components.use-fork-ref" "0.0.12"
-    "@bit/hide1982.react-chrome-extension-components.use-ripple" "0.0.12"
+    "@bit/hide1982.react-components.ripple" "1.0.0"
+    "@bit/hide1982.react-components.use-fork-ref" "1.0.0"
+    "@bit/hide1982.react-components.use-ripple" "1.0.0"
     "@types/react" "^16.9.53"
     "@types/styled-components" "^5.1.5"
     react "^17.0.1"
     styled-components "^5.2.1"
 
-"@bit/hide1982.react-chrome-extension-components.button@^0.0.12":
-  version "0.0.12"
-  resolved "https://node.bit.dev/hide1982.react-chrome-extension-components.button/-/hide1982.react-chrome-extension-components.button-0.0.12.tgz#d30ac3a78c8c74e5b8294f4d38b92369dbf30378"
-  integrity sha1-0wrDp4yMdOW4KU9NOLkjadvzA3g=
+"@bit/hide1982.react-components.button@^1.0.0":
+  version "1.0.0"
+  resolved "https://node.bit.dev/hide1982.react-components.button/-/hide1982.react-components.button-1.0.0.tgz#36cc5918eb826b3ad73da1a684b27cd66c3fe3e5"
+  integrity sha1-NsxZGOuCazrXPaGmhLJ81mw/4+U=
   dependencies:
-    "@bit/hide1982.react-chrome-extension-components.button-base" "0.0.12"
-    "@bit/hide1982.react-chrome-extension-components.style" "0.0.12"
-    "@bit/hide1982.react-chrome-extension-components.types" "0.0.12"
+    "@bit/hide1982.react-components.button-base" "1.0.0"
+    "@bit/hide1982.react-components.style" "1.0.0"
     "@types/react" "^16.9.53"
     "@types/styled-components" "^5.1.5"
     react "^17.0.1"
     styled-components "^5.2.1"
 
-"@bit/hide1982.react-chrome-extension-components.get-icon@0.0.12":
-  version "0.0.12"
-  resolved "https://node.bit.dev/hide1982.react-chrome-extension-components.get-icon/-/hide1982.react-chrome-extension-components.get-icon-0.0.12.tgz#dd439c7715937b7372af2bf4dd266e29ea349581"
-  integrity sha1-3UOcdxWTe3Nyryv03SZuKeo0lYE=
+"@bit/hide1982.react-components.get-icon@1.0.0":
+  version "1.0.0"
+  resolved "https://node.bit.dev/hide1982.react-components.get-icon/-/hide1982.react-components.get-icon-1.0.0.tgz#80bc5858a57289341e84edc331e897541fdd309e"
+  integrity sha1-gLxYWKVyiTQehO3DMeiXVB/dMJ4=
   dependencies:
-    "@bit/hide1982.react-chrome-extension-components.icons" "0.0.12"
+    "@bit/hide1982.react-components.icons" "1.0.0"
     "@types/react" "^16.9.53"
     react "^17.0.1"
 
-"@bit/hide1982.react-chrome-extension-components.icon-button@^0.0.13":
-  version "0.0.13"
-  resolved "https://node.bit.dev/hide1982.react-chrome-extension-components.icon-button/-/hide1982.react-chrome-extension-components.icon-button-0.0.13.tgz#efda9e4d73971f8b6409ab0840ab682180a45e28"
-  integrity sha1-79qeTXOXH4tkCasIQKtoIYCkXig=
+"@bit/hide1982.react-components.icon-button@^1.0.0":
+  version "1.0.0"
+  resolved "https://node.bit.dev/hide1982.react-components.icon-button/-/hide1982.react-components.icon-button-1.0.0.tgz#939802f3c35dda675d627bb1a8ebe705bc148634"
+  integrity sha1-k5gC88Nd2mddYnuxqOvnBbwUhjQ=
   dependencies:
-    "@bit/hide1982.react-chrome-extension-components.button-base" "0.0.12"
-    "@bit/hide1982.react-chrome-extension-components.icon" "0.0.12"
-    "@bit/hide1982.react-chrome-extension-components.style" "0.0.12"
-    "@bit/hide1982.react-chrome-extension-components.types" "0.0.12"
-    "@types/react" "^16.9.53"
-    "@types/styled-components" "^5.1.5"
-    react "^17.0.1"
-    styled-components "^5.2.1"
-
-"@bit/hide1982.react-chrome-extension-components.icon@0.0.12", "@bit/hide1982.react-chrome-extension-components.icon@^0.0.12":
-  version "0.0.12"
-  resolved "https://node.bit.dev/hide1982.react-chrome-extension-components.icon/-/hide1982.react-chrome-extension-components.icon-0.0.12.tgz#732f3ffffdf2a16aa106bc69a75f428b2547e0d9"
-  integrity sha1-cy8///3yoWqhBrxpp19CiyVH4Nk=
-  dependencies:
-    "@bit/hide1982.react-chrome-extension-components.get-icon" "0.0.12"
+    "@bit/hide1982.react-components.button-base" "1.0.0"
+    "@bit/hide1982.react-components.icon" "1.0.0"
+    "@bit/hide1982.react-components.style" "1.0.0"
     "@types/react" "^16.9.53"
     "@types/styled-components" "^5.1.5"
     react "^17.0.1"
     styled-components "^5.2.1"
 
-"@bit/hide1982.react-chrome-extension-components.icons@0.0.12":
-  version "0.0.12"
-  resolved "https://node.bit.dev/hide1982.react-chrome-extension-components.icons/-/hide1982.react-chrome-extension-components.icons-0.0.12.tgz#6b2f88b64aabb66368580d198523a455c496635c"
-  integrity sha1-ay+ItkqrtmNoWA0ZhSOkVcSWY1w=
+"@bit/hide1982.react-components.icon@1.0.0", "@bit/hide1982.react-components.icon@^1.0.0":
+  version "1.0.0"
+  resolved "https://node.bit.dev/hide1982.react-components.icon/-/hide1982.react-components.icon-1.0.0.tgz#bd8b9e3d8536183af8cbb60fedad964d559f04e6"
+  integrity sha1-vYuePYU2GDr4y7YP7a2WTVWfBOY=
   dependencies:
-    "@types/react" "^16.9.53"
-    react "^17.0.1"
-
-"@bit/hide1982.react-chrome-extension-components.set-ref@0.0.12":
-  version "0.0.12"
-  resolved "https://node.bit.dev/hide1982.react-chrome-extension-components.set-ref/-/hide1982.react-chrome-extension-components.set-ref-0.0.12.tgz#b008a9ff27bfdbce77fbed138157f1b4682d8184"
-  integrity sha1-sAip/ye/2853++0TgVfxtGgtgYQ=
-  dependencies:
-    "@types/react" "^16.9.53"
-    react "^17.0.1"
-
-"@bit/hide1982.react-chrome-extension-components.style@0.0.12":
-  version "0.0.12"
-  resolved "https://node.bit.dev/hide1982.react-chrome-extension-components.style/-/hide1982.react-chrome-extension-components.style-0.0.12.tgz#8919d607552dfded5d4e186065217fc1ff4c6087"
-  integrity sha1-iRnWB1Ut/e1dThhgZSF/wf9MYIc=
-
-"@bit/hide1982.react-chrome-extension-components.text-field@^0.0.12":
-  version "0.0.12"
-  resolved "https://node.bit.dev/hide1982.react-chrome-extension-components.text-field/-/hide1982.react-chrome-extension-components.text-field-0.0.12.tgz#aed83ee905443f5c4e3eb432292c0c2200ba2369"
-  integrity sha1-rtg+6QVEP1xOPrQyKSwMIgC6I2k=
-  dependencies:
+    "@bit/hide1982.react-components.get-icon" "1.0.0"
     "@types/react" "^16.9.53"
     "@types/styled-components" "^5.1.5"
     react "^17.0.1"
     styled-components "^5.2.1"
 
-"@bit/hide1982.react-chrome-extension-components.types@0.0.12":
-  version "0.0.12"
-  resolved "https://node.bit.dev/hide1982.react-chrome-extension-components.types/-/hide1982.react-chrome-extension-components.types-0.0.12.tgz#5387f41f02b0c90486f632da5dc97066ac728b62"
-  integrity sha1-U4f0HwKwyQSG9jLaXclwZqxyi2I=
-
-"@bit/hide1982.react-chrome-extension-components.use-fork-ref@0.0.12":
-  version "0.0.12"
-  resolved "https://node.bit.dev/hide1982.react-chrome-extension-components.use-fork-ref/-/hide1982.react-chrome-extension-components.use-fork-ref-0.0.12.tgz#c8eb54f4d15f865ec55d9a0de1a9d843f89e8770"
-  integrity sha1-yOtU9NFfhl7FXZoN4anYQ/ieh3A=
+"@bit/hide1982.react-components.icons@1.0.0":
+  version "1.0.0"
+  resolved "https://node.bit.dev/hide1982.react-components.icons/-/hide1982.react-components.icons-1.0.0.tgz#319546faaf00e0ef70db9363e8f05be7f9122320"
+  integrity sha1-MZVG+q8A4O9w25Nj6PBb5/kSIyA=
   dependencies:
-    "@bit/hide1982.react-chrome-extension-components.set-ref" "0.0.12"
     "@types/react" "^16.9.53"
     react "^17.0.1"
 
-"@bit/hide1982.react-chrome-extension-components.use-ripple@0.0.12":
-  version "0.0.12"
-  resolved "https://node.bit.dev/hide1982.react-chrome-extension-components.use-ripple/-/hide1982.react-chrome-extension-components.use-ripple-0.0.12.tgz#7d79b0567f63d9df16fb0c16907f6449046d94cc"
-  integrity sha1-fXmwVn9j2d8W+wwWkH9kSQRtlMw=
+"@bit/hide1982.react-components.ripple@1.0.0":
+  version "1.0.0"
+  resolved "https://node.bit.dev/hide1982.react-components.ripple/-/hide1982.react-components.ripple-1.0.0.tgz#5220349e805a836f8168e0413912952611f9d499"
+  integrity sha1-UiA0noBag2+BaOBBORKVJhH51Jk=
   dependencies:
+    "@types/styled-components" "^5.1.5"
+    styled-components "^5.2.1"
+
+"@bit/hide1982.react-components.set-ref@1.0.0":
+  version "1.0.0"
+  resolved "https://node.bit.dev/hide1982.react-components.set-ref/-/hide1982.react-components.set-ref-1.0.0.tgz#4108da2908affb75e9fe4279ef462bbb8e470e1c"
+  integrity sha1-QQjaKQiv+3Xp/kJ570Yru45HDhw=
+  dependencies:
+    "@types/react" "^16.9.53"
+    react "^17.0.1"
+
+"@bit/hide1982.react-components.style@1.0.0":
+  version "1.0.0"
+  resolved "https://node.bit.dev/hide1982.react-components.style/-/hide1982.react-components.style-1.0.0.tgz#075e720058eb8428db58b2e19e34aa94eb8b2965"
+  integrity sha1-B15yAFjrhCjbWLLhnjSqlOuLKWU=
+
+"@bit/hide1982.react-components.text-field@^1.0.0":
+  version "1.0.0"
+  resolved "https://node.bit.dev/hide1982.react-components.text-field/-/hide1982.react-components.text-field-1.0.0.tgz#cfe86425e1f0abf35f1466519b7a735db205e15c"
+  integrity sha1-z+hkJeHwq/NfFGZRm3pzXbIF4Vw=
+  dependencies:
+    "@bit/hide1982.react-components.style" "1.0.0"
     "@types/react" "^16.9.53"
     "@types/styled-components" "^5.1.5"
     react "^17.0.1"
     styled-components "^5.2.1"
+
+"@bit/hide1982.react-components.use-fork-ref@1.0.0":
+  version "1.0.0"
+  resolved "https://node.bit.dev/hide1982.react-components.use-fork-ref/-/hide1982.react-components.use-fork-ref-1.0.0.tgz#6206d6be9fda328b93254e5b20341b076ee5b2e0"
+  integrity sha1-YgbWvp/aMouTJU5bIDQbB27lsuA=
+  dependencies:
+    "@bit/hide1982.react-components.set-ref" "1.0.0"
+    "@types/react" "^16.9.53"
+    react "^17.0.1"
+
+"@bit/hide1982.react-components.use-ripple@1.0.0":
+  version "1.0.0"
+  resolved "https://node.bit.dev/hide1982.react-components.use-ripple/-/hide1982.react-components.use-ripple-1.0.0.tgz#9b6aad8d52855c2ac424ae79a05e6a2f4c94f640"
+  integrity sha1-m2qtjVKFXCrEJK55oF5qL0yU9kA=
+  dependencies:
+    "@types/react" "^16.9.53"
+    react "^17.0.1"
 
 "@bit/mui-org.material-ui.colors@4.9.10":
   version "4.9.10"
