@@ -19,7 +19,7 @@ const Container = styled.div`
   padding: 12px;
 `
 
-const getIpaPhonetiation = (pronunciations: Pronunciation[]) =>
+const getIpaPronunciation = (pronunciations: Pronunciation[]) =>
   pronunciations.find(
     (pronunciation): pronunciation is Required<Pronunciation> =>
       pronunciation.phoneticNotation === "IPA"
@@ -29,7 +29,7 @@ const Dictionary: React.FC = () => {
   const result = dictionaryStub.results[0]
   const { word, pronunciations, lexicalEntries } = result
   const { audioFile, phoneticSpelling } = ensure(
-    getIpaPhonetiation(pronunciations)
+    getIpaPronunciation(pronunciations)
   )
 
   return (

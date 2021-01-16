@@ -1,7 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import { Pronunciation, Result } from "types"
-import IconButton from "./IconButton"
+import IconButton from "@bit/hide1982.react-components.icon-button"
 import Typography from "./Typography"
 
 interface Props {
@@ -42,7 +42,7 @@ const WordHeading: React.FC<Props> = ({ values }) => {
         {word}
       </Typography>
       <PhoneticSpelling>{phoneticSpelling}</PhoneticSpelling>
-      <SpeakerIconButton iconName="speaker" onClick={playAudio(audioFile)} />
+      <SpeakerIconButton name="speaker" onClick={playAudio(audioFile)} />
     </Container>
   )
 }
