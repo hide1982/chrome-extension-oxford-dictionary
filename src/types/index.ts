@@ -1,3 +1,4 @@
+/// <reference types="chrome"/>
 import { ContentType, ResponseType } from "constant"
 
 interface BasicValue {
@@ -129,10 +130,14 @@ export interface Result {
 }
 
 export interface ResponseOxfordDictionary {
-  metadata: unknown
-  query: string
-  results: Result[]
-  error?: unknown
+  metadata?: {
+    operation: string
+    provider: string
+    schema: string
+  }
+  query?: string
+  results?: Result[]
+  error?: string
 }
 
 interface Translation {
