@@ -4,13 +4,16 @@
     "esModuleInterop": true,
     "isolatedModules": true,
     "jsx": "react",
-    "module": "ESNext",
+    "module": "commonjs",
     "target": "ESNext",
     "moduleResolution": "node",
     "noImplicitAny": true,
     "removeComments": true,
     "sourceMap": true,
     "strict": true,
+    "paths": {
+      "@/*": ["*"]
+    }
   },
   "include": ["src/**/*"],
   "exclude": ["node_modules", "dist", "**/*.spec.ts"]

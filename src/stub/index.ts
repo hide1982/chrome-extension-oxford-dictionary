@@ -1,4 +1,4 @@
-import { ResponseOxfordDictionary } from "types"
+import { ResponseOxfordDictionary } from "@/types"
 
 const sense = {
   id: "id",

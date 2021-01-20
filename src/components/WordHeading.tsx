@@ -1,8 +1,9 @@
 import React from "react"
 import styled from "styled-components"
-import { Pronunciation, Result } from "types"
 import IconButton from "@bit/hide1982.react-components.icon-button"
-import Typography from "./Typography"
+
+import { Pronunciation, Result } from "@/types"
+import Typography from "@/components/Typography"
 
 interface Props {
   values: {

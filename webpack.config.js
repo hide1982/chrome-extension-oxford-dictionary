@@ -1,19 +1,17 @@
-import path from "path"
-import HtmlWebpackPlugin from "html-webpack-plugin"
-import { CleanWebpackPlugin } from "clean-webpack-plugin"
-import CopyWebpackPlugin from "copy-webpack-plugin"
-import _ from "lodash"
+const path = require("path")
+const HtmlWebpackPlugin = require("html-webpack-plugin")
+const { CleanWebpackPlugin } = require("clean-webpack-plugin")
+const CopyWebpackPlugin = require("copy-webpack-plugin")
+const _ = require("lodash")
+const TsconfigPathsWebpackPlugin = require("tsconfig-paths-webpack-plugin")
 
-import type { Configuration, RuleSetRule } from "webpack"
-import type { webpackTypes } from "./types"
-
-const ruleTs: RuleSetRule = {
+const ruleTs = {
   test: /\.tsx?$/,
   use: "ts-loader",
   exclude: /node_modules/,
 }
 
-const ruleSvg: RuleSetRule = {
+const ruleSvg = {
   test: /\.svg$/,
   use: [
     {
@@ -22,7 +20,7 @@ const ruleSvg: RuleSetRule = {
   ],
 }
 
-const common: Configuration = {
+const common = {
   entry: "./src/index.ts",
   output: {
     path: path.resolve(__dirname, "dist"),
@@ -34,12 +32,15 @@ const common: Configuration = {
   resolve: {
     modules: ["node_modules", path.resolve(__dirname, "src")],
     extensions: [".ts", ".tsx", ".js", ".json", ".svg", ".png"],
+    plugins: [
+      new TsconfigPathsWebpackPlugin(),
+    ],
   },
 }
 
-const prod: Configuration = {}
+const prod = {}
 
-const devServe: Configuration = {
+const devServe = {
   entry: {
     app: "./src/App.tsx",
   },
@@ -60,7 +61,7 @@ const devServe: Configuration = {
   ],
 }
 
-const dev: Configuration = {
+const dev = {
   entry: {
     app: "./src/App.tsx",
     background: "./src/background.ts",
@@ -80,7 +81,7 @@ const dev: Configuration = {
   ],
 }
 
-const configurationFactory: webpackTypes.ConfigurationFactory = (env, args) => {
+const configurationFactory = (env, args) => {
   if (args.mode === "development") {
     if (env && env["WEBPACK_SERVE"]) {
       return _.merge(common, devServe)
@@ -96,4 +97,4 @@ const configurationFactory: webpackTypes.ConfigurationFactory = (env, args) => {
   return common
 }
 
-export default configurationFactory
+module.exports = configurationFactory

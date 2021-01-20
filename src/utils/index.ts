@@ -31,7 +31,6 @@ export const getSelection = (): Selection | void => {
   const isValidNodeType = nodeTypes.every(
     (type) => ignoreNodeTypes.indexOf(type) === -1
   )
-  console.log(selection, nodeTypes, isValidNodeType)
 
   if (selection && isValidNodeType) {
     return selection

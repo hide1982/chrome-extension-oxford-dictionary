@@ -1,14 +1,15 @@
 import React from "react"
 import styled from "styled-components"
-import { border, boxShadow } from "styles"
 
-import { Pronunciation } from "types"
-import { ensure } from "utils"
-import { dictionaryStub } from "stub"
+import { border, boxShadow } from "@/styles"
+import { Pronunciation } from "@/types"
+import { ensure } from "@/utils"
+import { dictionaryStub } from "@/stub"
+import useSelection from "@/hooks/useSelection"
 
-import ControlBar from "components/ControlBar"
-import WordHeading from "components/WordHeading"
-import WordContent from "components/WordContent"
+import ControlBar from "@/components/ControlBar"
+import WordHeading from "@/components/WordHeading"
+import WordContent from "@/components/WordContent"
 
 const Container = styled.div`
   ${boxShadow.default};

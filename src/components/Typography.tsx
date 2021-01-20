@@ -1,7 +1,8 @@
 import React from "react"
 import styled from "styled-components"
-import { fontFamily } from "styles"
 import { isNumber } from "lodash"
+
+import { fontFamily } from "@/styles"
 
 const DEFAULT_FONT_SIZE = 16
 

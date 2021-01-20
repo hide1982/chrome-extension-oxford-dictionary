@@ -1,5 +1,5 @@
 /// <reference types="chrome"/>
-import { ContentType, ResponseType } from "constant"
+import { ContentType, ResponseType } from "@/constants"
 
 interface BasicValue {
   id: string

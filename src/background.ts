@@ -1,11 +1,12 @@
 import _ from "lodash"
-import { ResponseOxfordDictionary } from "types"
+
+import { ResponseOxfordDictionary } from "@/types"
 import {
   OXFORD_DICTIONARY_API_BASE_URL,
   OXFORD_DICTIONARY_APP_ID,
   OXFORD_DICTIONARY_APP_KEY,
-} from "./config"
-import { DictionaryLang } from "./constant"
+} from "@/config"
+import { DictionaryLang } from "@/constants"
 
 const fetchWards = async (
   word: string,

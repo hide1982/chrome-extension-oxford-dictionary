@@ -1,7 +1,8 @@
 import React from "react"
 import styled from "styled-components"
-import { LexicalEntry, Entry } from "types"
-import Typography from "./Typography"
+
+import { LexicalEntry, Entry } from "@/types"
+import Typography from "@/components/Typography"
 
 interface Props {
   lexicalEntries: LexicalEntry[]

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
-import { ResponseOxfordDictionary } from "types"
-import { getSelection, getDisplayPosition, sendMessage } from "../utils/index"
+
+import { ResponseOxfordDictionary } from "@/types"
+import { getSelection, getDisplayPosition, sendMessage } from "@/utils/index"
 
 interface SelectionValue {
   word: string
