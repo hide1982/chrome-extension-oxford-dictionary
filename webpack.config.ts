@@ -8,13 +8,16 @@ import CopyWebpackPlugin from "copy-webpack-plugin"
 import _ from "lodash"
 import TsconfigPathsWebpackPlugin from "tsconfig-paths-webpack-plugin"
 
-const ruleTs = {
+import type { Configuration, RuleSetRule } from "webpack"
+import type { webpackTypes } from "./types"
+
+const ruleTs: RuleSetRule = {
   test: /\.tsx?$/,
   use: "ts-loader",
   exclude: /node_modules/,
 }
 
-const ruleSvg = {
+const ruleSvg: RuleSetRule = {
   test: /\.svg$/,
   use: [
     {
@@ -23,7 +26,7 @@ const ruleSvg = {
   ],
 }
 
-const common = {
+const common: Configuration = {
   entry: "./src/index.ts",
   output: {
     path: path.resolve(__dirname, "dist"),
@@ -39,9 +42,9 @@ const common = {
   },
 }
 
-const prod = {}
+const prod: Configuration = {}
 
-const devServe = {
+const devServe: Configuration = {
   entry: {
     app: "./src/App.tsx",
   },
@@ -62,7 +65,7 @@ const devServe = {
   ],
 }
 
-const dev = {
+const dev: Configuration = {
   entry: {
     app: "./src/App.tsx",
     background: "./src/background.ts",
@@ -82,7 +85,7 @@ const dev = {
   ],
 }
 
-const configurationFactory = (env, args) => {
+const configurationFactory: webpackTypes.ConfigurationFactory = (env, args) => {
   if (args.mode === "development") {
     if (env && env["WEBPACK_SERVE"]) {
       return _.merge(common, devServe)
@@ -98,4 +101,4 @@ const configurationFactory = (env, args) => {
   return common
 }
 
-module.exports = configurationFactory
+export default configurationFactory
