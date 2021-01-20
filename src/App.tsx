@@ -1,18 +1,25 @@
 import React from "react"
 import ReactDOM from "react-dom"
 import styled, { ThemeProvider } from "styled-components"
+import Draggable from "react-draggable"
+import { Provider } from "react-redux"
 
-import Frame from "components/Frame"
-import Dictionary from "components/Dictionary"
-import ResetCss from "styles/ResetCss"
-import getTheme from "utils/getTheme"
+import store from "@/store"
+import Frame from "@/components/Frame"
+import Dictionary from "@/components/Dictionary"
+import ResetCss from "@/styles/ResetCss"
+import getTheme from "@/utils/getTheme"
 
 const DictionaryFrame = styled(Frame)`
   width: 500px;
   height: 300px;
 `
 
-const Container = styled.div``
+const Container = styled.div`
+  display: inline-flex;
+  padding: 24px;
+  background-color: #eee;
+`
 
 const frameHead = (
   <>
@@ -28,13 +35,17 @@ const entryPoint = document.createElement("div")
 document.body.appendChild(entryPoint)
 
 ReactDOM.render(
-  <DictionaryFrame head={frameHead}>
-    <ThemeProvider theme={getTheme()}>
-      <ResetCss />
+  <Provider store={store}>
+    <Draggable grid={[3, 3]}>
       <Container>
-        <Dictionary />
+        <DictionaryFrame head={frameHead}>
+          <ThemeProvider theme={getTheme()}>
+            <ResetCss />
+            <Dictionary />
+          </ThemeProvider>
+        </DictionaryFrame>
       </Container>
-    </ThemeProvider>
-  </DictionaryFrame>,
+    </Draggable>
+  </Provider>,
   entryPoint
 )
