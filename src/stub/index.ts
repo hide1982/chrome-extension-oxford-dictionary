@@ -25,8 +25,15 @@ const sense = {
   ],
 }
 
-export const dictionaryStub: ResponseOxfordDictionary = {
-  metadata: "metadata",
+export const dictionaryStub: Omit<
+  Required<ResponseOxfordDictionary>,
+  "error"
+> = {
+  metadata: {
+    operation: "operation",
+    provider: "provider",
+    schema: "schema",
+  },
   query: "query",
   results: [
     {
