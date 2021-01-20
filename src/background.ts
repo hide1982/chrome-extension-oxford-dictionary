@@ -13,6 +13,7 @@ const fetchWards = async (
   lang: DictionaryLang = DictionaryLang.English_US
 ): Promise<ResponseOxfordDictionary> => {
   const url = `${OXFORD_DICTIONARY_API_BASE_URL}/words/${lang}?q=${word}`
+
   const response = await fetch(url, {
     credentials: "include",
     headers: {
@@ -20,6 +21,7 @@ const fetchWards = async (
       app_key: OXFORD_DICTIONARY_APP_KEY,
     },
   })
+
   return response.json()
 }
 

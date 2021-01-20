@@ -1,11 +1,14 @@
-import React from "react"
+import React, { useEffect } from "react"
 import styled from "styled-components"
+import { useDispatch, useSelector } from "react-redux"
 
 import { border, boxShadow } from "@/styles"
 import { Pronunciation } from "@/types"
 import { ensure } from "@/utils"
 import { dictionaryStub } from "@/stub"
 import useSelection from "@/hooks/useSelection"
+import { RootState } from "@/slices"
+import { fetchWord } from "@/slices/dictionarySlice"
 
 import ControlBar from "@/components/ControlBar"
 import WordHeading from "@/components/WordHeading"
@@ -32,6 +35,19 @@ const Dictionary: React.FC = () => {
   const { audioFile, phoneticSpelling } = ensure(
     getIpaPronunciation(pronunciations)
   )
+  const { words } = useSelector<RootState, RootState["dictionary"]>(
+    (state) => state.dictionary
+  )
+
+  console.log(words)
+
+  const { selectionValue } = useSelection()
+  const dispatch = useDispatch()
+  useEffect(() => {
+    if (!selectionValue?.word) return
+
+    dispatch(fetchWord(selectionValue.word))
+  }, [selectionValue?.word])
 
   return (
     <Container>
