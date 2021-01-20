@@ -1,9 +1,12 @@
-const path = require("path")
-const HtmlWebpackPlugin = require("html-webpack-plugin")
-const { CleanWebpackPlugin } = require("clean-webpack-plugin")
-const CopyWebpackPlugin = require("copy-webpack-plugin")
-const _ = require("lodash")
-const TsconfigPathsWebpackPlugin = require("tsconfig-paths-webpack-plugin")
+// for `tsconfig-paths-webpack-plugin` problem. see https://github.com/dividab/tsconfig-paths-webpack-plugin/issues/32#issuecomment-642377943
+delete process.env.TS_NODE_PROJECT
+
+import path from "path"
+import HtmlWebpackPlugin from "html-webpack-plugin"
+import { CleanWebpackPlugin } from "clean-webpack-plugin"
+import CopyWebpackPlugin from "copy-webpack-plugin"
+import _ from "lodash"
+import TsconfigPathsWebpackPlugin from "tsconfig-paths-webpack-plugin"
 
 const ruleTs = {
   test: /\.tsx?$/,
@@ -32,9 +35,7 @@ const common = {
   resolve: {
     modules: ["node_modules", path.resolve(__dirname, "src")],
     extensions: [".ts", ".tsx", ".js", ".json", ".svg", ".png"],
-    plugins: [
-      new TsconfigPathsWebpackPlugin(),
-    ],
+    plugins: [new TsconfigPathsWebpackPlugin()],
   },
 }
 
