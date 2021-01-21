@@ -55,6 +55,7 @@ const slice = createSlice({
         value,
       })
       state.isLoading = false
+      state.isShow = state.words.length !== 0
     })
   },
 })

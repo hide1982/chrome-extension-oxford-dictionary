@@ -1,4 +1,6 @@
 import { combineReducers } from "@reduxjs/toolkit"
+import { createSelectorHook } from "react-redux"
+
 import dictionaryReducer from "@/slices/dictionarySlice"
 
 const rootReducer = combineReducers({
@@ -6,5 +8,6 @@ const rootReducer = combineReducers({
 })
 
 export type RootState = ReturnType<typeof rootReducer>
+export const useSelector = createSelectorHook<RootState>()
 
 export default rootReducer
