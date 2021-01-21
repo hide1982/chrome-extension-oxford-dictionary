@@ -8,7 +8,7 @@ import { DictionaryLang } from "@/constants"
 
 const fetchWards = async (
   word: string,
-  lang: DictionaryLang = DictionaryLang.English_US
+  lang: DictionaryLang = "en-us" as DictionaryLang
 ): Promise<ResponseOxfordDictionary> => {
   const url = `${OXFORD_DICTIONARY_API_BASE_URL}/words/${lang}?q=${word}`
 

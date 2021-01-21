@@ -27,7 +27,7 @@ export const enum SearchType {
 
 export const DARK_MODE_MEDIA_QUERY = "(prefers-color-scheme: dark)"
 
-export const enum DictionaryLang {
+export enum DictionaryLang {
   English_US = "en-us",
   English_GB = "en-gb",
   Spanish = "es",

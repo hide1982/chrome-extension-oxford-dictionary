@@ -124,7 +124,7 @@ export interface Result {
   id: string
   language: string
   lexicalEntries: LexicalEntry[]
-  pronunciations: Pronunciation[]
+  pronunciations?: Pronunciation[]
   type: string
   word: string
 }

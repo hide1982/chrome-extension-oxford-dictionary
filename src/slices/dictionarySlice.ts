@@ -1,23 +1,24 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit"
 import { nanoid } from "nanoid"
 
-import { ResponseOxfordDictionary } from "@/types"
+import { ResponseOxfordDictionary, Result } from "@/types"
 import { sendMessage } from "@/utils"
 
-interface Word extends ResponseOxfordDictionary {
+interface Word {
   id: string
+  value: Result
 }
 
 interface State {
   words: Word[]
-  displayIndex: number
+  wordIndex: number
   isShow: boolean
   isLoading: boolean
 }
 
 const initialState: State = {
   words: [],
-  displayIndex: 0,
+  wordIndex: 0,
   isShow: false,
   isLoading: false,
 }
@@ -39,7 +40,13 @@ const slice = createSlice({
       state.isLoading = true
     })
     builder.addCase(fetchWord.fulfilled, (state, action) => {
-      state.words.push({ ...action.payload, id: nanoid() })
+      if (action.payload.error || !action.payload.results) return
+
+      state.wordIndex = state.words.length
+      state.words.push({
+        id: nanoid(),
+        value: action.payload.results[0],
+      })
       state.isLoading = false
     })
   },

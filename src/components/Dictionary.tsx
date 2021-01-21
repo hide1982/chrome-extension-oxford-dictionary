@@ -4,8 +4,6 @@ import { useDispatch, useSelector } from "react-redux"
 
 import { border, boxShadow } from "@/styles"
 import { Pronunciation } from "@/types"
-import { ensure } from "@/utils"
-import { dictionaryStub } from "@/stub"
 import useSelection from "@/hooks/useSelection"
 import { RootState } from "@/slices"
 import { fetchWord } from "@/slices/dictionarySlice"
@@ -23,25 +21,20 @@ const Container = styled.div`
   padding: 12px;
 `
 
-const getIpaPronunciation = (pronunciations: Pronunciation[]) =>
-  pronunciations.find(
+const getIpaPronunciation = (pronunciations?: Pronunciation[]) => {
+  if (!pronunciations) return
+  return pronunciations.find(
     (pronunciation): pronunciation is Required<Pronunciation> =>
       pronunciation.phoneticNotation === "IPA"
   )
+}
 
 const Dictionary: React.FC = () => {
-  const result = dictionaryStub.results[0]
-  const { word, pronunciations, lexicalEntries } = result
-  const { audioFile, phoneticSpelling } = ensure(
-    getIpaPronunciation(pronunciations)
-  )
-  const { words } = useSelector<RootState, RootState["dictionary"]>(
+  const { words, wordIndex } = useSelector<RootState, RootState["dictionary"]>(
     (state) => state.dictionary
   )
-
-  console.log(words)
-
   const { selectionValue } = useSelection()
+
   const dispatch = useDispatch()
   useEffect(() => {
     if (!selectionValue?.word) return
@@ -49,10 +42,19 @@ const Dictionary: React.FC = () => {
     dispatch(fetchWord(selectionValue.word))
   }, [selectionValue?.word])
 
+  console.log(words)
+
+  if (words.length === 0) return null
+
+  const { word, lexicalEntries } = words[wordIndex].value
+  const pronunciation = getIpaPronunciation(lexicalEntries[0].pronunciations)
+
+  console.log(words)
+
   return (
     <Container>
       <ControlBar />
-      <WordHeading values={{ word, audioFile, phoneticSpelling }} />
+      <WordHeading values={{ word, pronunciation }} />
       <WordContent lexicalEntries={lexicalEntries} />
     </Container>
   )
