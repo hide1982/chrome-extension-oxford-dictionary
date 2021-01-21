@@ -1,5 +1,3 @@
-import _ from "lodash"
-
 import { ResponseOxfordDictionary } from "@/types"
 import {
   OXFORD_DICTIONARY_API_BASE_URL,
