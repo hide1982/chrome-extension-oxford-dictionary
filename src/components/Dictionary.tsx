@@ -1,9 +1,8 @@
 import React from "react"
 import styled from "styled-components"
-import { useSelector } from "react-redux"
 
 import { Pronunciation } from "@/types"
-import { RootState } from "@/slices"
+import { useSelector } from "@/slices"
 
 import ControlBar from "@/components/ControlBar"
 import WordHeading from "@/components/WordHeading"
@@ -25,9 +24,7 @@ const getIpaPronunciation = (pronunciations?: Pronunciation[]) => {
 }
 
 const Dictionary: React.FC = () => {
-  const { words, wordIndex } = useSelector<RootState, RootState["dictionary"]>(
-    (state) => state.dictionary
-  )
+  const { words, wordIndex } = useSelector((state) => state.dictionary)
   const { word, lexicalEntries } = words[wordIndex].value
   const pronunciation = getIpaPronunciation(lexicalEntries[0].pronunciations)
 
