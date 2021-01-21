@@ -1,14 +1,18 @@
 import React from "react"
 import styled from "styled-components"
 
-import { LexicalEntry, Entry } from "@/types"
+import { Entry, LexicalEntryWithId } from "@/types"
 import Typography from "@/components/Typography"
 
 interface Props {
-  lexicalEntries: LexicalEntry[]
+  lexicalEntries: LexicalEntryWithId[]
 }
 
 const SHOW_ENTRY_INDEX = 0
+
+const Entry = styled.div`
+  margin-top: 16px;
+`
 
 const Sense = styled.div`
   & + & {
@@ -32,7 +36,7 @@ const Entries: React.FC<{ value: Entry[] }> = ({ value: entries }) => {
   return (
     <div>
       {senses.map((sense, i) => (
-        <Sense key={i.toString()}>
+        <Sense key={sense.id}>
           <Definition>
             <DefinitionIndex fontWeight="bold">{i + 1}.</DefinitionIndex>
             <div>
@@ -53,19 +57,17 @@ const Entries: React.FC<{ value: Entry[] }> = ({ value: entries }) => {
   )
 }
 
-const WordContent: React.FC<Props> = ({ lexicalEntries }) => {
-  return (
-    <div>
-      {lexicalEntries.map(({ entries, lexicalCategory }, i) => (
-        <React.Fragment key={i.toString()}>
-          <div>
-            <Typography fontStyle="italic">{lexicalCategory.text}</Typography>
-          </div>
-          <Entries value={entries} />
-        </React.Fragment>
-      ))}
-    </div>
-  )
-}
+const WordContent: React.FC<Props> = ({ lexicalEntries }) => (
+  <div>
+    {lexicalEntries.map(({ id, entries, lexicalCategory }) => (
+      <Entry key={id}>
+        <div>
+          <Typography fontStyle="italic">{lexicalCategory.text}</Typography>
+        </div>
+        <Entries value={entries} />
+      </Entry>
+    ))}
+  </div>
+)
 
 export default WordContent

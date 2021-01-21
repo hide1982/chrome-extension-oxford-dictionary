@@ -1,12 +1,12 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit"
 import { nanoid } from "nanoid"
 
-import { ResponseOxfordDictionary, Result } from "@/types"
+import { ResponseOxfordDictionary, WordValue } from "@/types"
 import { sendMessage } from "@/utils"
 
 interface Word {
   id: string
-  value: Result
+  value: WordValue
 }
 
 interface State {
@@ -42,10 +42,17 @@ const slice = createSlice({
     builder.addCase(fetchWord.fulfilled, (state, action) => {
       if (action.payload.error || !action.payload.results) return
 
+      const value = {
+        ...action.payload.results[0],
+        lexicalEntries: action.payload.results[0].lexicalEntries.map(
+          (entry) => ({ ...entry, id: nanoid() })
+        ),
+      }
+
       state.wordIndex = state.words.length
       state.words.push({
         id: nanoid(),
-        value: action.payload.results[0],
+        value,
       })
       state.isLoading = false
     })

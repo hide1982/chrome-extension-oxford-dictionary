@@ -120,6 +120,10 @@ export interface LexicalEntry {
   variantForms?: VariantForm[]
 }
 
+export interface LexicalEntryWithId extends LexicalEntry {
+  id: string
+}
+
 export interface Result {
   id: string
   language: string
@@ -220,3 +224,7 @@ export type MessageResponse =
   | MessageResponseDictionary
   | MessageResponseTranslation
   | MessageResponseAllWords
+
+export interface WordValue extends Result {
+  lexicalEntries: LexicalEntryWithId[]
+}
