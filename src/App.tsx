@@ -17,6 +17,8 @@ const DictionaryFrame = styled(Frame)`
 
 const Container = styled.div`
   display: inline-flex;
+  position: relative;
+  z-index: 9999;
   padding: 24px;
   background-color: #eee;
 `
