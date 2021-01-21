@@ -1,5 +1,4 @@
 /// <reference types="chrome"/>
-import { ContentType, ResponseType } from "@/constants"
 
 interface BasicValue {
   id: string
@@ -143,87 +142,6 @@ export interface ResponseOxfordDictionary {
   results?: Result[]
   error?: string
 }
-
-interface Translation {
-  detected_source_language: string
-  text: string
-  source: string
-}
-
-export interface ResponseDeeplTranslation {
-  translations: Translation[]
-}
-
-export interface State {
-  words: DictionaryData[]
-  translation: TranslationData | null
-  wordIndex: number
-  isShow: boolean
-  contentType: ContentType
-}
-
-export interface DictionaryResponseData extends ResponseOxfordDictionary {
-  translation: string
-}
-
-export interface TranslateResponseData {
-  translate: TranslationData
-}
-
-export interface ResponseDictionary {
-  isSuccess: boolean
-  type: ResponseType.Dictionary
-  data: [ResponseDeeplTranslation, ResponseOxfordDictionary]
-}
-
-export interface ResponseTranslate {
-  isSuccess: boolean
-  type: ResponseType.Translate
-  data: ResponseDeeplTranslation
-}
-
-export interface FormatePostDictionaryParams {
-  count: number
-  word: string
-  results: Result[]
-  translation: string
-  accessDates: number[]
-  lastAccessDate: number
-}
-
-export interface DictionaryData extends FormatePostDictionaryParams {
-  id: string
-}
-
-export interface TranslationData {
-  source: string
-  translations: Translation[]
-}
-
-export interface MessageResponseDictionary {
-  type: ResponseType.Dictionary
-  isSuccess: boolean
-  data: DictionaryData
-}
-
-export interface MessageResponseTranslation {
-  type: ResponseType.Translate
-  isSuccess: boolean
-  data: TranslationData
-}
-
-export interface MessageResponseAllWords {
-  type: ResponseType.AllWords
-  isSuccess: boolean
-  data: DictionaryData[]
-}
-
-export type Response = ResponseDictionary | ResponseTranslate
-
-export type MessageResponse =
-  | MessageResponseDictionary
-  | MessageResponseTranslation
-  | MessageResponseAllWords
 
 export interface WordValue extends Result {
   lexicalEntries: LexicalEntryWithId[]
