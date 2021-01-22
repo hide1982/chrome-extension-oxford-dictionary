@@ -9,11 +9,21 @@ import * as actions from "@/slices/dictionarySlice"
 import ControlBar from "@/components/ControlBar"
 import WordHeading from "@/components/WordHeading"
 import WordContent from "@/components/WordContent"
+import Loader from "@/components/Loader"
+import Toast from "@/components/Toast"
 
 const Container = styled.div`
+  position: relative;
   width: 500px;
   height: 300px;
   background-color: ${({ theme }) => theme.backgroundColor.main};
+`
+
+const StyledLoader = styled(Loader)`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 `
 
 const StyledControlBar = styled(ControlBar)`
@@ -22,7 +32,7 @@ const StyledControlBar = styled(ControlBar)`
 
 const ScrollArea = styled.div`
   width: 100%;
-  height: 256px;
+  height: 246px;
   overflow-y: auto;
   padding: 0 16px 16px;
 `
@@ -37,12 +47,19 @@ const getIpaPronunciation = (pronunciations?: Pronunciation[]) => {
 
 const Dictionary: React.FC = () => {
   const dispatch = useDispatch()
-  const { words, wordIndex } = useSelector((state) => state.dictionary)
+  const { words, wordIndex, isLoading, message } = useSelector(
+    (state) => state.dictionary
+  )
   const { word, lexicalEntries } = words[wordIndex].value
   const pronunciation = getIpaPronunciation(lexicalEntries[0].pronunciations)
 
   return (
     <Container>
+      <StyledLoader isShow={isLoading} />
+      <Toast
+        message={message}
+        onClose={() => dispatch(actions.clearMessage())}
+      />
       <StyledControlBar
         onNext={() => dispatch(actions.nextWord())}
         onPrev={() => dispatch(actions.prevWord())}
