@@ -30,12 +30,13 @@ interface DisplayPosition {
   top: number
   left: number
 }
-export const getDisplayPosition = (
-  targetRect: DOMRect,
-  offsetTop = 30
-): DisplayPosition => {
+export const getDisplayPosition = (targetRect: DOMRect): DisplayPosition => {
   const relative = document.body.getBoundingClientRect()
-  const top = Math.floor(targetRect.top) - Math.floor(relative.top) - offsetTop
+  const top =
+    Math.floor(targetRect.top) -
+    Math.floor(relative.top) +
+    targetRect.height +
+    4
   const left = Math.floor(targetRect.left) - Math.floor(relative.left)
 
   return { top, left }
