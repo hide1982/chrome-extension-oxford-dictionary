@@ -64,6 +64,7 @@ const Dictionary: React.FC = () => {
         onNext={() => dispatch(actions.nextWord())}
         onPrev={() => dispatch(actions.prevWord())}
         onClose={() => dispatch(actions.closeDictionary())}
+        onInputEnter={(lookUpWord) => dispatch(actions.fetchWord(lookUpWord))}
         isMin={wordIndex === 0}
         isMax={wordIndex === words.length - 1}
       />

@@ -994,10 +994,10 @@
   resolved "https://node.bit.dev/hide1982.react-components.style/-/hide1982.react-components.style-1.0.0.tgz#075e720058eb8428db58b2e19e34aa94eb8b2965"
   integrity sha1-B15yAFjrhCjbWLLhnjSqlOuLKWU=
 
-"@bit/hide1982.react-components.text-field@^1.0.0":
-  version "1.0.0"
-  resolved "https://node.bit.dev/hide1982.react-components.text-field/-/hide1982.react-components.text-field-1.0.0.tgz#cfe86425e1f0abf35f1466519b7a735db205e15c"
-  integrity sha1-z+hkJeHwq/NfFGZRm3pzXbIF4Vw=
+"@bit/hide1982.react-components.text-field@^1.0.1":
+  version "1.0.1"
+  resolved "https://node.bit.dev/hide1982.react-components.text-field/-/hide1982.react-components.text-field-1.0.1.tgz#b801a65e8ae5880dea4c1a5d751e0e8af87e6754"
+  integrity sha1-uAGmXorliA3qTBpddR4Oivh+Z1Q=
   dependencies:
     "@bit/hide1982.react-components.style" "1.0.0"
     "@types/react" "^16.9.53"
