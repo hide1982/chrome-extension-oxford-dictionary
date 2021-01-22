@@ -2,13 +2,14 @@ import React, { useEffect } from "react"
 import styled from "styled-components"
 import { useDispatch } from "react-redux"
 
-import Frame from "@/components/Frame"
-import Dictionary from "@/components/Dictionary"
 import useSelection from "@/hooks/useSelection"
 import { border, boxShadow } from "@/styles"
 import ResetCss from "@/styles/ResetCss"
 import { useSelector } from "@/slices"
 import { fetchWord } from "@/slices/dictionarySlice"
+
+import Frame from "@/components/Frame"
+import Dictionary from "@/components/Dictionary"
 
 const DictionaryFrame = styled(Frame)`
   width: 500px;

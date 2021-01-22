@@ -1,7 +1,8 @@
 import React from "react"
 import styled from "styled-components"
-import Typography from "@/components/Typography"
 import IconButton from "@bit/hide1982.react-components.icon-button"
+
+import Typography from "@/components/Typography"
 
 const ToastBase = styled.div`
   position: absolute;
