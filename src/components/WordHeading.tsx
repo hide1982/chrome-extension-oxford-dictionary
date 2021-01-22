@@ -6,10 +6,8 @@ import { Pronunciation, Result } from "@/types"
 import Typography from "@/components/Typography"
 
 interface Props {
-  values: {
-    word: Result["word"]
-    pronunciation?: Pick<Pronunciation, "audioFile" | "phoneticSpelling">
-  }
+  word: Result["word"]
+  pronunciation?: Pick<Pronunciation, "audioFile" | "phoneticSpelling">
 }
 
 const Container = styled.div`
@@ -31,9 +29,7 @@ const playAudio = (audioFile: Pronunciation["audioFile"]) => () => {
   audio.play()
 }
 
-const WordHeading: React.FC<Props> = ({ values }) => {
-  const { word, pronunciation } = values
-
+const WordHeading: React.FC<Props> = ({ word, pronunciation }) => {
   return (
     <Container>
       <Typography fontSize={24} fontWeight="bold">

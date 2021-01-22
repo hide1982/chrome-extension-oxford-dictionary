@@ -34,7 +34,17 @@ export const fetchWord = createAsyncThunk(
 const slice = createSlice({
   name: "dictionary",
   initialState,
-  reducers: {},
+  reducers: {
+    closeDictionary: (state) => {
+      state.isShow = false
+    },
+    nextWord: (state) => {
+      state.wordIndex++
+    },
+    prevWord: (state) => {
+      state.wordIndex--
+    },
+  },
   extraReducers: (builder) => {
     builder.addCase(fetchWord.pending, (state) => {
       state.isLoading = true
@@ -59,5 +69,7 @@ const slice = createSlice({
     })
   },
 })
+
+export const { closeDictionary, nextWord, prevWord } = slice.actions
 
 export default slice.reducer

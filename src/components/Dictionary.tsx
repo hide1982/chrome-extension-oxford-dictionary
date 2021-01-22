@@ -1,8 +1,10 @@
 import React from "react"
 import styled from "styled-components"
+import { useDispatch } from "react-redux"
 
 import { Pronunciation } from "@/types"
 import { useSelector } from "@/slices"
+import * as actions from "@/slices/dictionarySlice"
 
 import ControlBar from "@/components/ControlBar"
 import WordHeading from "@/components/WordHeading"
@@ -15,7 +17,7 @@ const Container = styled.div`
 `
 
 const StyledControlBar = styled(ControlBar)`
-  margin-bottom: 12px;
+  margin: 0 16px 12px;
 `
 
 const ScrollArea = styled.div`
@@ -34,16 +36,23 @@ const getIpaPronunciation = (pronunciations?: Pronunciation[]) => {
 }
 
 const Dictionary: React.FC = () => {
+  const dispatch = useDispatch()
   const { words, wordIndex } = useSelector((state) => state.dictionary)
   const { word, lexicalEntries } = words[wordIndex].value
   const pronunciation = getIpaPronunciation(lexicalEntries[0].pronunciations)
 
   return (
     <Container>
-      <StyledControlBar />
+      <StyledControlBar
+        onNext={() => dispatch(actions.nextWord())}
+        onPrev={() => dispatch(actions.prevWord())}
+        onClose={() => dispatch(actions.closeDictionary())}
+        isMin={wordIndex === 0}
+        isMax={wordIndex === words.length - 1}
+      />
       <ScrollArea>
         <div>
-          <WordHeading values={{ word, pronunciation }} />
+          <WordHeading word={word} pronunciation={pronunciation} />
           <WordContent lexicalEntries={lexicalEntries} />
         </div>
       </ScrollArea>
