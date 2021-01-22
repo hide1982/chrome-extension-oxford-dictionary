@@ -19,6 +19,7 @@ const DictionaryFrame = styled(Frame)`
 
 const Container = styled.div`
   display: inline-flex;
+  flex-direction: column;
   position: relative;
   z-index: 9999;
   ${boxShadow.default};
@@ -36,9 +37,6 @@ const frameHead = (
 )
 
 const Handle = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
   height: 16px;
   width: 100%;
   background-color: ${({ theme }) => theme.backgroundColor.main};
@@ -50,7 +48,7 @@ const initialContent = `
 <html>
   <head></head>
   <body>
-    <div style="overflow-x: hidden;"></div>
+    <div style="overflow: hidden;"></div>
   </body>
 </html>
 `

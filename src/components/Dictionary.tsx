@@ -10,9 +10,19 @@ import WordContent from "@/components/WordContent"
 
 const Container = styled.div`
   width: 500px;
-  min-height: 300px;
+  height: 300px;
   background-color: ${({ theme }) => theme.backgroundColor.main};
-  padding: 16px;
+`
+
+const StyledControlBar = styled(ControlBar)`
+  margin-bottom: 12px;
+`
+
+const ScrollArea = styled.div`
+  width: 100%;
+  height: 256px;
+  overflow-y: auto;
+  padding: 0 16px 16px;
 `
 
 const getIpaPronunciation = (pronunciations?: Pronunciation[]) => {
@@ -30,9 +40,13 @@ const Dictionary: React.FC = () => {
 
   return (
     <Container>
-      <ControlBar />
-      <WordHeading values={{ word, pronunciation }} />
-      <WordContent lexicalEntries={lexicalEntries} />
+      <StyledControlBar />
+      <ScrollArea>
+        <div>
+          <WordHeading values={{ word, pronunciation }} />
+          <WordContent lexicalEntries={lexicalEntries} />
+        </div>
+      </ScrollArea>
     </Container>
   )
 }

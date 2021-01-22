@@ -15,8 +15,6 @@ interface Props {
 const Container = styled.div`
   display: flex;
   align-items: center;
-  margin: 12px 0;
-  padding-bottom: 8px;
   border-bottom: solid 2px ${({ theme }) => theme.borderColor.main};
 `
 
