@@ -7,7 +7,6 @@
     "lint": "eslint ./src/index.ts",
     "test": "echo \"Error: no test specified\" && exit 1",
     "webpack-configure": "cross-env TS_NODE_PROJECT=\"tsconfig-for-webpack-config.json\"",
-    "devserve": "yarn webpack-configure webpack serve --mode=development",
     "watch": "yarn webpack-configure webpack -w --mode=development",
     "build": "yarn webpack-configure webpack --mode=production"
   },
@@ -16,7 +15,6 @@
   "devDependencies": {
     "@svgr/webpack": "^5.5.0",
     "@types/chrome": "^0.0.128",
-    "@types/html-webpack-plugin": "^3.2.4",
     "@types/lodash": "^4.14.165",
     "@types/node": "^14.14.22",
     "@types/react": "^17.0.0",
@@ -25,7 +23,6 @@
     "@types/react-redux": "^7.1.15",
     "@types/styled-components": "^5.1.4",
     "@types/webpack": "^4.41.26",
-    "@types/webpack-dev-server": "^3.11.1",
     "@typescript-eslint/eslint-plugin": "^4.8.2",
     "@typescript-eslint/parser": "^4.8.2",
     "clean-webpack-plugin": "^3.0.0",
@@ -34,7 +31,6 @@
     "eslint": "^7.14.0",
     "eslint-config-prettier": "^6.15.0",
     "eslint-plugin-prettier": "^3.1.4",
-    "html-webpack-plugin": "^4.5.1",
     "prettier": "^2.2.0",
     "ts-loader": "^8.0.11",
     "ts-node": "^9.1.1",
@@ -42,8 +38,7 @@
     "tsconfig-paths-webpack-plugin": "^3.3.0",
     "typescript": "^4.1.2",
     "webpack": "^5.7.0",
-    "webpack-cli": "^4.2.0",
-    "webpack-dev-server": "^3.11.0"
+    "webpack-cli": "^4.2.0"
   },
   "dependencies": {
     "@bit/hide1982.react-components.button": "^1.0.0",
