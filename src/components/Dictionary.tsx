@@ -17,7 +17,7 @@ const Container = styled.div`
 `
 
 const StyledControlBar = styled(ControlBar)`
-  margin: 0 16px 12px;
+  padding: 12px 16px;
 `
 
 const ScrollArea = styled.div`

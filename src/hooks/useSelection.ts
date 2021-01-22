@@ -21,10 +21,13 @@ const useSelection = (): {
     const selection = getSelection()
     if (!selection) return
 
-    const word = selection.toString().trim().split(/\s/)[0].toLowerCase()
+    const words = selection.toString().trim().split(/\s/)
+    if (words.length > 1 || words.length === 0) return
+
+    const word = words[0].toLowerCase()
     if (!word) return
 
-    const rect = selection?.getRangeAt(0).getBoundingClientRect()
+    const rect = selection.getRangeAt(0).getBoundingClientRect()
     const displayPosition = getDisplayPosition(rect)
     setSelectionValue({ word, displayPosition })
   }

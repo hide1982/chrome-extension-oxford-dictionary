@@ -1,6 +1,5 @@
 import React, { useEffect } from "react"
 import styled from "styled-components"
-import Draggable from "react-draggable"
 import { useDispatch } from "react-redux"
 
 import Frame from "@/components/Frame"
@@ -17,10 +16,12 @@ const DictionaryFrame = styled(Frame)`
   overflow-x: hidden;
 `
 
-const Container = styled.div`
+const Container = styled.div<{ top: number; left: number }>`
+  position: absolute;
+  top: ${({ top }) => top}px;
+  left: ${({ left }) => left}px;
   display: inline-flex;
   flex-direction: column;
-  position: relative;
   z-index: 9999;
   ${boxShadow.default};
   ${border.default};
@@ -64,18 +65,18 @@ const Main: React.FC = () => {
     dispatch(fetchWord(selectionValue.word))
   }, [selectionValue?.word])
 
-  if (!isShow) return null
+  if (!isShow || !selectionValue) return null
 
   return (
-    <Draggable grid={[3, 3]} handle=".handle">
-      <Container>
-        <Handle className="handle" />
-        <DictionaryFrame head={frameHead} initialContent={initialContent}>
-          <ResetCss />
-          <Dictionary />
-        </DictionaryFrame>
-      </Container>
-    </Draggable>
+    <Container
+      top={selectionValue.displayPosition.top}
+      left={selectionValue.displayPosition.left}
+    >
+      <DictionaryFrame head={frameHead} initialContent={initialContent}>
+        <ResetCss />
+        <Dictionary />
+      </DictionaryFrame>
+    </Container>
   )
 }
 
