@@ -38,13 +38,6 @@ const frameHead = (
   </>
 )
 
-const Handle = styled.div`
-  height: 16px;
-  width: 100%;
-  background-color: ${({ theme }) => theme.backgroundColor.main};
-  cursor: move;
-`
-
 const initialContent = `
 <!DOCTYPE html>
 <html>
