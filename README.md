@@ -18,7 +18,7 @@ Oxford dictionaries API を使用したポップアップ英英辞書です。
 
 ## 使い方
 ### 1. Oxford Dictionaries API の API key を取得
-下記のURLで登録後、数日でアカウントが発行されます。
+下記のURLで登録後、数日でアカウントが発行されます。  
 https://developer.oxforddictionaries.com
 
 `sample.config.ts`を`config.ts`に変更して、発行された`App ID`と`App Key`を登録します。
@@ -35,5 +35,5 @@ export const OXFORD_DICTIONARY_APP_KEY = "APP KEY" // ← App Key
 yarn install
 yarn build
 ```
-生成された`build`ディレクトリを、拡張機能のデベロッパーモードを有効にして、
+生成された`build`ディレクトリを、拡張機能のデベロッパーモードを有効にして、  
 「パケージ化されていない拡張機能を読み込む」で読み込みます。
