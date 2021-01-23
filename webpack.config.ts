@@ -26,10 +26,9 @@ const ruleSvg: RuleSetRule = {
 }
 
 const common: Configuration = {
-  entry: "./src/index.ts",
-  output: {
-    path: path.resolve(__dirname, "dist"),
-    filename: "[name].js",
+  entry: {
+    app: "./src/App.tsx",
+    background: "./src/background.ts",
   },
   module: {
     rules: [ruleTs, ruleSvg],
@@ -38,15 +37,6 @@ const common: Configuration = {
     modules: ["node_modules", path.resolve(__dirname, "src")],
     extensions: [".ts", ".tsx", ".js", ".json", ".svg", ".png"],
     plugins: [new TsconfigPathsWebpackPlugin()],
-  },
-}
-
-const prod: Configuration = {}
-
-const dev: Configuration = {
-  entry: {
-    app: "./src/App.tsx",
-    background: "./src/background.ts",
   },
   plugins: [
     new CleanWebpackPlugin(),
@@ -61,6 +51,20 @@ const dev: Configuration = {
       ],
     }),
   ],
+}
+
+const prod: Configuration = {
+  output: {
+    path: path.resolve(__dirname, "build"),
+    filename: "[name].js",
+  },
+}
+
+const dev: Configuration = {
+  output: {
+    path: path.resolve(__dirname, "dist"),
+    filename: "[name].js",
+  },
 }
 
 const configurationFactory: webpackTypes.ConfigurationFactory = (env, args) => {

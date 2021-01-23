@@ -19,6 +19,15 @@ const Container = styled.div`
   background-color: ${({ theme }) => theme.backgroundColor.main};
 `
 
+const Mask = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.6);
+`
+
 const StyledLoader = styled(Loader)`
   position: absolute;
   top: 50%;
@@ -55,6 +64,7 @@ const Dictionary: React.FC = () => {
 
   return (
     <Container>
+      {isLoading && <Mask />}
       <StyledLoader isShow={isLoading} />
       <Toast
         message={message}
