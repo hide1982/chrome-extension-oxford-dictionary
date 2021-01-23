@@ -1,8 +1,8 @@
 import React from "react"
-import { render, screen, fireEvent } from "@testing-library/react"
-import ControlBar from "@/components/ControlBar"
+import { render, fireEvent } from "@testing-library/react"
+import ControlBar, { Props } from "@/components/ControlBar"
 
-const setup = (options?: { isMin?: boolean; isMax?: boolean }) => {
+const setup = (props?: Partial<Pick<Props, "isMax" | "isMin">>) => {
   const onNext = jest.fn()
   const onPrev = jest.fn()
   const onClose = jest.fn()
@@ -13,8 +13,8 @@ const setup = (options?: { isMin?: boolean; isMax?: boolean }) => {
       onPrev={onPrev}
       onClose={onClose}
       onInputEnter={onInputEnter}
-      isMin={options?.isMin ?? false}
-      isMax={options?.isMax ?? false}
+      isMin={props?.isMin ?? false}
+      isMax={props?.isMax ?? false}
     />
   )
   const nextButton = utils.getByTestId(
@@ -73,6 +73,16 @@ describe("ControlBar component", () => {
     expect(fns.onInputEnter).toBeCalledTimes(1)
   })
 
+  test("should not call onInputEnter if press `a` key", () => {
+    const { fns, comps } = setup()
+
+    fireEvent.keyDown(comps.wordInput, {
+      key: "a",
+    })
+
+    expect(fns.onInputEnter).toBeCalledTimes(0)
+  })
+
   test("should input test", () => {
     const { comps } = setup()
     fireEvent.change(comps.wordInput, { target: { value: "expect text" } })
@@ -81,15 +91,15 @@ describe("ControlBar component", () => {
   })
 
   test("should disabled next button if isMax is true", () => {
-    const { fns } = setup({ isMax: true })
-    fireEvent.click(screen.getByTestId("control-bar_next-button"))
+    const { fns, comps } = setup({ isMax: true })
+    fireEvent.click(comps.nextButton)
 
     expect(fns.onNext).toBeCalledTimes(0)
   })
 
   test("should disabled prev button if isMin is true", () => {
-    const { fns } = setup({ isMin: true })
-    fireEvent.click(screen.getByTestId("control-bar_prev-button"))
+    const { fns, comps } = setup({ isMin: true })
+    fireEvent.click(comps.prevButton)
 
     expect(fns.onPrev).toBeCalledTimes(0)
   })

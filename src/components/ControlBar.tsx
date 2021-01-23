@@ -3,7 +3,7 @@ import styled from "styled-components"
 import IconButton from "@bit/hide1982.react-components.icon-button"
 import TextField from "@bit/hide1982.react-components.text-field"
 
-interface Props {
+export interface Props {
   onNext: () => void
   onPrev: () => void
   onClose: () => void
