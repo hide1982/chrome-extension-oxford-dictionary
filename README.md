@@ -3,7 +3,9 @@
 
 ## 概要
 Oxford dictionaries API を使用したポップアップ英英辞書です。
-単語を選択状態にすると、辞書がポップアップで表示されます。
+単語を選択状態にすると、辞書がポップアップで表示されます。  
+
+![app-screenshot](/images/app-screenshot.png/)
 
 ## 使用した技術
 - Typescript
