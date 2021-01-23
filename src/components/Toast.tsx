@@ -16,7 +16,7 @@ const ToastBase = styled.div`
   min-width: 200px;
 `
 
-interface Props {
+export interface Props {
   message: string | null
   onClose: () => void
   className?: string
@@ -26,9 +26,16 @@ const Toast: React.FC<Props> = ({ message, onClose, className }) => {
   if (!message) return null
 
   return (
-    <ToastBase className={className}>
-      <Typography fontColor="#fff">{message}</Typography>
-      <IconButton name="close" color="#fff" onClick={onClose} />
+    <ToastBase data-testid="toast" className={className}>
+      <Typography data-testid="toast_message" fontColor="#fff">
+        {message}
+      </Typography>
+      <IconButton
+        data-testid="toast_close-button"
+        name="close"
+        color="#fff"
+        onClick={onClose}
+      />
     </ToastBase>
   )
 }
