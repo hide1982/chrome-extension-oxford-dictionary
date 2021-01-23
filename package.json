@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "lint": "eslint ./src/index.ts",
-    "test": "jest",
+    "test": "jest --coverage",
     "webpack-configure": "cross-env TS_NODE_PROJECT=\"tsconfig-for-webpack-config.json\"",
     "watch": "yarn webpack-configure webpack -w --mode=development",
     "build": "yarn webpack-configure webpack --mode=production"

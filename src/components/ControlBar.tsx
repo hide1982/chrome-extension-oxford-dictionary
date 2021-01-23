@@ -43,14 +43,29 @@ const ControlBar: React.FC<Props> = ({
   }
 
   return (
-    <Container className={className}>
-      <LeftIconButton name="leftArrow" onClick={onPrev} disabled={isMin} />
-      <IconButton name="rightArrow" onClick={onNext} disabled={isMax} />
+    <Container className={className} data-testid="control-bar">
+      <PrevButton
+        name="leftArrow"
+        onClick={onPrev}
+        disabled={isMin}
+        data-testid="control-bar_prev-button"
+      />
+      <IconButton
+        name="rightArrow"
+        onClick={onNext}
+        disabled={isMax}
+        data-testid="control-bar_next-button"
+      />
       <StyledTextField
         onKeydown={onKeyDown}
         onChange={(e) => setLookUpWord(e.target.value)}
+        data-testid="control-bar_word-input"
       />
-      <IconButton name="close" onClick={onClose} />
+      <IconButton
+        name="close"
+        onClick={onClose}
+        data-testid="control-bar_close-button"
+      />
     </Container>
   )
 }
