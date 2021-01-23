@@ -6,7 +6,7 @@ import { fontFamily } from "@/styles"
 
 const DEFAULT_FONT_SIZE = 16
 
-interface Props {
+export interface Props {
   fontSize?: number | string
   fontStyle?: "normal" | "italic" | "oblique"
   fontColor?: string
@@ -40,12 +40,14 @@ const StyledTypography = styled.p<Props>`
   font-size: ${({ fontSize }) => formatFontSizeValue(fontSize)};
   font-weight: ${({ fontWeight }) => fontWeight};
   font-style: ${({ fontStyle }) => fontStyle};
-  color: ${({ fontColor, theme }) => fontColor ?? theme.fontColor.main};
+  color: ${(props) => props.fontColor ?? props.theme.fontColor.main};
 `
 
 const Typography: React.FC<Props> = ({
   fontSize = DEFAULT_FONT_SIZE,
   ...props
-}) => <StyledTypography fontSize={fontSize} {...props} />
+}) => (
+  <StyledTypography fontSize={fontSize} data-testid="typography" {...props} />
+)
 
 export default Typography

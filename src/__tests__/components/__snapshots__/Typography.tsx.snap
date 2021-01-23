@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Typography component screenshot 1`] = `
+<p
+  class="sc-bdfBwQ fbaPVK"
+  data-testid="typography"
+  font-size="16"
+>
+  typography
+</p>
+`;
