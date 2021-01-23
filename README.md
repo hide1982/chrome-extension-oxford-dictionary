@@ -2,7 +2,7 @@
 # Chrome Extension Popup Oxford Dictionary
 
 ## 概要
-Oxford dictionaries API を使用したポップアップ英英辞書です。
+Oxford dictionaries API を使用したポップアップ英英辞書です。  
 単語を選択状態にすると、辞書がポップアップで表示されます。  
 
 ![app-screenshot](/images/app-screenshot.png/)
