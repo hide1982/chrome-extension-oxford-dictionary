@@ -1,4 +1,4 @@
-![test](https://github.com/hide1982/chrome-extension-oxford-dictionary/workflows/test/badge.svg)
+![test](https://github.com/hide1982/chrome-extension-oxford-dictionary/workflows/CI/badge.svg)
 [![MIT License](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](LICENSE)
 # Chrome Extension Popup Oxford Dictionary
 
@@ -9,15 +9,23 @@ Oxford dictionaries API を使用したポップアップ英英辞書です。
 ![app-screenshot](/images/app-screenshot.png/)
 
 ## 使用した技術
+  
+### ライブラリ
+- webpack
 - Typescript
 - React
 - Redux
 - Redux Toolkit
 - styled components
-- webpack
 - Bit.devを使用したコンポーネント
   - [Github - bit-react-components](https://github.com/hide1982/bit-react-components)
   - [bit.dev - react-components](https://bit.dev/hide1982/react-components)
+
+### テスト関連
+- Jest
+- Testing Library
+- husky
+- GitHub actions
 
 ## 使い方
 ### 1. Oxford Dictionaries API の API key を取得

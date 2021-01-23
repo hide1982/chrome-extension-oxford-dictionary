@@ -1,14 +1,14 @@
 # This is a basic workflow to help you get started with Actions
 
-name: test
+name: CI
 
-# Controls when the action will run. 
+# Controls when the action will run.
 on:
   # Triggers the workflow on push or pull request events but only for the main branch
   push:
-    branches: [ main ]
+    branches: [main]
   pull_request:
-    branches: [ main ]
+    branches: [main]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -23,7 +23,7 @@ jobs:
     strategy:
       matrix:
         node-version: [12.x]
-    
+
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
@@ -35,10 +35,9 @@ jobs:
       - run: npm install -g yarn
       - name: create config.ts
         run: cp src/sample.config.ts src/config.ts
-        
+
       - name: yarn install, build, and test
         run: |
           yarn
           yarn build
           yarn test
-      
