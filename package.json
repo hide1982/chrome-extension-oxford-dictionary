@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "lint": "eslint ./src/index.ts",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "webpack-configure": "cross-env TS_NODE_PROJECT=\"tsconfig-for-webpack-config.json\"",
     "watch": "yarn webpack-configure webpack -w --mode=development",
     "build": "yarn webpack-configure webpack --mode=production"
@@ -13,8 +13,12 @@
   "author": "",
   "license": "MIT",
   "devDependencies": {
+    "@babel/plugin-syntax-jsx": "^7.12.1",
+    "@babel/preset-typescript": "^7.12.7",
     "@svgr/webpack": "^5.5.0",
+    "@testing-library/react": "^11.2.3",
     "@types/chrome": "^0.0.128",
+    "@types/jest": "^26.0.20",
     "@types/lodash": "^4.14.165",
     "@types/node": "^14.14.22",
     "@types/react": "^17.0.0",
@@ -31,6 +35,7 @@
     "eslint": "^7.14.0",
     "eslint-config-prettier": "^6.15.0",
     "eslint-plugin-prettier": "^3.1.4",
+    "jest": "^26.6.3",
     "prettier": "^2.2.0",
     "ts-loader": "^8.0.11",
     "ts-node": "^9.1.1",
@@ -41,10 +46,8 @@
     "webpack-cli": "^4.2.0"
   },
   "dependencies": {
-    "@bit/hide1982.react-components.button": "^1.0.0",
-    "@bit/hide1982.react-components.icon": "^1.0.0",
-    "@bit/hide1982.react-components.icon-button": "^1.0.0",
-    "@bit/hide1982.react-components.text-field": "^1.0.1",
+    "@bit/hide1982.react-components.icon-button": "^1.0.2",
+    "@bit/hide1982.react-components.text-field": "^1.0.2",
     "@reduxjs/toolkit": "^1.5.0",
     "lodash": "^4.17.20",
     "nanoid": "^3.1.20",

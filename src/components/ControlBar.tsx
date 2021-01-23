@@ -23,7 +23,7 @@ const StyledTextField = styled(TextField)`
   margin-right: auto;
 `
 
-const LeftIconButton = styled(IconButton)`
+const PrevButton = styled(IconButton)`
   margin-right: 12px;
 `
 
