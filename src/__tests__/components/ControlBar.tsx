@@ -29,6 +29,7 @@ const setup = (options?: { isMin?: boolean; isMax?: boolean }) => {
   const wordInput = utils.getByTestId(
     "control-bar_word-input"
   ) as HTMLInputElement
+  const controlBar = utils.getByTestId("control-bar")
 
   return {
     fns: {
@@ -43,6 +44,7 @@ const setup = (options?: { isMin?: boolean; isMax?: boolean }) => {
       prevButton,
       closeButton,
       wordInput,
+      controlBar,
     },
     utils,
   }
@@ -50,9 +52,9 @@ const setup = (options?: { isMin?: boolean; isMax?: boolean }) => {
 
 describe("ControlBar component", () => {
   test("snapshot", () => {
-    setup()
+    const { comps } = setup()
 
-    expect(screen.getByTestId("control-bar")).toMatchSnapshot()
+    expect(comps.controlBar).toMatchSnapshot()
   })
 
   test("should call each callback events", () => {
