@@ -1,3 +1,4 @@
+![test](https://github.com/hide1982/chrome-extension-oxford-dictionary/workflows/test/badge.svg)
 [![MIT License](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](LICENSE)
 # Chrome Extension Popup Oxford Dictionary
 
