@@ -1,6 +1,5 @@
 import React from "react"
 import styled from "styled-components"
-import { isNumber } from "lodash"
 
 import { fontFamily } from "@/styles"
 
@@ -30,7 +29,7 @@ export interface Props {
 }
 
 const formatFontSizeValue = (size: Props["fontSize"]) => {
-  if (isNumber(size)) return `${size}px`
+  if (typeof size === "number") return `${size}px`
 
   return size
 }
