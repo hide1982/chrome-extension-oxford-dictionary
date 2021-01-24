@@ -38,6 +38,7 @@ const lightColor: ThemeColor = {
   text: "#000",
 }
 
+// TODO: Consider designing the dark mode. For now, apply the light color theme.
 const darkColor: ThemeColor = {
   primary: "#fafafa",
   primaryLight: "#fff",
