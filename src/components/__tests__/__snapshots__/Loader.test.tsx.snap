@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Loader component snapshot invisible 1`] = `
+<div
+  class="sc-bdfBwQ gUbHnz"
+  data-testid="loader"
+/>
+`;
+
+exports[`Loader component snapshot visible 1`] = `
+<div
+  class="sc-bdfBwQ jPdVrk"
+  data-testid="loader"
+/>
+`;

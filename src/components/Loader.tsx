@@ -1,6 +1,8 @@
 import styled from "styled-components"
 
-const Loader = styled.div<{ isShow: boolean }>`
+const Loader = styled.div.attrs({ "data-testid": "loader" })<{
+  isShow: boolean
+}>`
   &,
   &::before,
   &::after {
