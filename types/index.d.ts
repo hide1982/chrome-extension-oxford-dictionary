@@ -5,6 +5,7 @@ declare namespace webpackTypes {
     config?: string
     mode?: Configuration["mode"]
     env?: string
+    watch?: boolean
     "config-register"?: string
     configRegister?: string
     "config-name"?: string

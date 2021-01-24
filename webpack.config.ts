@@ -4,8 +4,9 @@ delete process.env.TS_NODE_PROJECT
 import path from "path"
 import { CleanWebpackPlugin } from "clean-webpack-plugin"
 import CopyWebpackPlugin from "copy-webpack-plugin"
-import _ from "lodash"
+import { merge } from "lodash"
 import TsconfigPathsWebpackPlugin from "tsconfig-paths-webpack-plugin"
+import { BundleAnalyzerPlugin } from "webpack-bundle-analyzer"
 
 import type { Configuration, RuleSetRule } from "webpack"
 import type { webpackTypes } from "./types"
@@ -69,11 +70,15 @@ const dev: Configuration = {
 
 const configurationFactory: webpackTypes.ConfigurationFactory = (env, args) => {
   if (args.mode === "development") {
-    return _.merge(common, dev)
+    const config = merge(common, dev)
+
+    if (!args.watch) config.plugins.push(new BundleAnalyzerPlugin())
+
+    return config
   }
 
   if (args.mode === "production") {
-    return _.merge(common, prod)
+    return merge(common, prod)
   }
 
   return common
