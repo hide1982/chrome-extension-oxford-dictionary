@@ -69,10 +69,12 @@ const dev: Configuration = {
 }
 
 const configurationFactory: webpackTypes.ConfigurationFactory = (env, args) => {
+  if (process.env.ANALYZER_REPORT === "true") {
+    common.plugins.push(new BundleAnalyzerPlugin())
+  }
+
   if (args.mode === "development") {
     const config = merge(common, dev)
-
-    if (!args.watch) config.plugins.push(new BundleAnalyzerPlugin())
 
     return config
   }
