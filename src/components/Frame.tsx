@@ -14,7 +14,7 @@ const StyledFrame = styled(FrameComponent)`
 `
 
 const Frame: React.FC<Props> = ({ className, children, ...props }) => (
-  <StyledFrame className={className} {...props}>
+  <StyledFrame className={className} data-testid="frame" {...props}>
     <FrameContextConsumer>
       {({ document }) => (
         <StyleSheetManager target={document.head}>

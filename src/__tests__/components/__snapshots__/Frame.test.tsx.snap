@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Frame component snapshot 1`] = `
+<iframe
+  class="sc-bdfBwQ vWQJH"
+  data-testid="frame"
+/>
+`;
