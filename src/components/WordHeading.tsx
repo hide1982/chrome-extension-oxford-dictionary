@@ -2,12 +2,12 @@ import React from "react"
 import styled from "styled-components"
 import IconButton from "@bit/hide1982.react-components.icon-button"
 
-import { Pronunciation, Result } from "@/types"
 import Typography from "@/components/Typography"
 
 interface Props {
-  word: Result["word"]
-  pronunciation?: Pick<Pronunciation, "audioFile" | "phoneticSpelling">
+  word: string
+  phoneticSpelling?: string
+  onPlayAudio: () => void
 }
 
 const Container = styled.div`
@@ -24,23 +24,29 @@ const SpeakerIconButton = styled(IconButton)`
   margin-left: 16px;
 `
 
-const playAudio = (audioFile: Pronunciation["audioFile"]) => () => {
-  const audio = new Audio(audioFile)
-  audio.play()
-}
-
-const WordHeading: React.FC<Props> = ({ word, pronunciation }) => {
+const WordHeading: React.FC<Props> = ({
+  word,
+  phoneticSpelling,
+  onPlayAudio,
+}) => {
   return (
-    <Container>
-      <Typography fontSize={24} fontWeight="bold">
+    <Container data-testid="word-heading">
+      <Typography
+        fontSize={24}
+        fontWeight="bold"
+        data-testid="word-heading_word"
+      >
         {word}
       </Typography>
-      {pronunciation && (
+      {phoneticSpelling && (
         <>
-          <PhoneticSpelling>{pronunciation.phoneticSpelling}</PhoneticSpelling>
+          <PhoneticSpelling data-testid="word-heading_phonetic-spelling">
+            {phoneticSpelling}
+          </PhoneticSpelling>
           <SpeakerIconButton
+            data-testid="word-heading_speaker-button"
             name="speaker"
-            onClick={playAudio(pronunciation.audioFile)}
+            onClick={onPlayAudio}
           />
         </>
       )}

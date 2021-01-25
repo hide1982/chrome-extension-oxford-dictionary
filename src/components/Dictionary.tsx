@@ -47,7 +47,14 @@ const ScrollArea = styled.div`
   padding: 0 16px 16px;
 `
 
-const getIpaPronunciation = (pronunciations?: Pronunciation[]) => {
+const playAudio = (audioFile: Pronunciation["audioFile"]) => () => {
+  const audio = new Audio(audioFile)
+  audio.play()
+}
+
+export const getIpaPronunciation = (
+  pronunciations?: Pronunciation[]
+): Required<Pronunciation> | undefined => {
   if (!pronunciations) return
   return pronunciations.find(
     (pronunciation): pronunciation is Required<Pronunciation> =>
@@ -83,7 +90,11 @@ const Dictionary: React.FC = () => {
       />
       <ScrollArea>
         <div>
-          <WordHeading word={word} pronunciation={pronunciation} />
+          <WordHeading
+            word={word}
+            phoneticSpelling={pronunciation?.phoneticSpelling}
+            onPlayAudio={() => playAudio(pronunciation?.audioFile)}
+          />
           <WordContent lexicalEntries={lexicalEntries} />
         </div>
       </ScrollArea>
