@@ -29,7 +29,7 @@ Oxford dictionaries API を使用したポップアップ英英辞書です。
 
 ## 使い方
 ### 1. Oxford Dictionaries API の API key を取得
-下記のURLで登録後、数日でアカウントが発行されます。  
+下記のURLで登録後、数日でアカウントが発行されます。（DEVELOPERプランが必要です）  
 https://developer.oxforddictionaries.com
 
 `sample.config.ts`を`config.ts`に変更して、発行された`App ID`と`App Key`を登録します。
