@@ -7,15 +7,10 @@ import CopyWebpackPlugin from "copy-webpack-plugin"
 import { merge } from "lodash"
 import TsconfigPathsWebpackPlugin from "tsconfig-paths-webpack-plugin"
 import { BundleAnalyzerPlugin } from "webpack-bundle-analyzer"
+import { removeDataTestIdTransformer } from "typescript-transformer-jsx-remove-data-test-id"
 
 import type { Configuration, RuleSetRule } from "webpack"
 import type { webpackTypes } from "./types"
-
-const ruleTs: RuleSetRule = {
-  test: /\.tsx?$/,
-  use: "ts-loader",
-  exclude: /node_modules/,
-}
 
 const ruleSvg: RuleSetRule = {
   test: /\.svg$/,
@@ -31,13 +26,22 @@ const common: Configuration = {
     app: "./src/App.tsx",
     background: "./src/background.ts",
   },
-  module: {
-    rules: [ruleTs, ruleSvg],
-  },
   resolve: {
     modules: ["node_modules", path.resolve(__dirname, "src")],
     extensions: [".ts", ".tsx", ".js", ".json", ".svg", ".png"],
     plugins: [new TsconfigPathsWebpackPlugin()],
+  },
+  module: {
+    rules: [
+      {
+        test: /\.svg$/,
+        use: [
+          {
+            loader: "@svgr/webpack",
+          },
+        ],
+      },
+    ],
   },
   plugins: [
     new CleanWebpackPlugin(),
@@ -59,12 +63,39 @@ const prod: Configuration = {
     path: path.resolve(__dirname, "build"),
     filename: "[name].js",
   },
+  module: {
+    rules: [
+      ruleSvg,
+      {
+        test: /\.tsx?$/,
+        exclude: /node_modules/,
+        use: {
+          loader: "ts-loader",
+          options: {
+            getCustomTransformers: () => ({
+              before: [removeDataTestIdTransformer()],
+            }),
+          },
+        },
+      },
+    ],
+  },
 }
 
 const dev: Configuration = {
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "[name].js",
+  },
+  module: {
+    rules: [
+      ruleSvg,
+      {
+        test: /\.tsx?$/,
+        use: "ts-loader",
+        exclude: /node_modules/,
+      },
+    ],
   },
 }
 

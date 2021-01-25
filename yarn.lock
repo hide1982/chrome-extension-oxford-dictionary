@@ -6823,6 +6823,11 @@ typedarray-to-buffer@^3.1.5:
   dependencies:
     is-typedarray "^1.0.0"
 
+typescript-transformer-jsx-remove-data-test-id@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/typescript-transformer-jsx-remove-data-test-id/-/typescript-transformer-jsx-remove-data-test-id-1.1.0.tgz#b880aeec232b826205e892794f2176e4e68c1185"
+  integrity sha512-EZ0NNsp6c9PD2ViNT2VKBJxXAs0QKFt4h3q5gcOYV/iODa8BW6yMlhnMWWxlXKgviZdyhSYAgLh5WZPbXmt0xg==
+
 typescript@^4.1.2:
   version "4.1.2"
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.1.2.tgz#6369ef22516fe5e10304aae5a5c4862db55380e9"
