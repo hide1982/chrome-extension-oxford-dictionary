@@ -59,14 +59,20 @@ const Entries: React.FC<{ value: Entry[] }> = ({ value: entries }) => {
 
 const WordContent: React.FC<Props> = ({ lexicalEntries }) => (
   <div>
-    {lexicalEntries.map(({ id, entries, lexicalCategory }) => (
-      <Entry key={id}>
-        <div>
-          <Typography fontStyle="italic">{lexicalCategory.text}</Typography>
-        </div>
-        <Entries value={entries} />
-      </Entry>
-    ))}
+    {lexicalEntries.map(({ id, entries, lexicalCategory }) => {
+      if (!entries || !entries[0].senses || !entries[0].senses[0].definitions) {
+        return null
+      }
+
+      return (
+        <Entry key={id}>
+          <div>
+            <Typography fontStyle="italic">{lexicalCategory.text}</Typography>
+          </div>
+          <Entries value={entries} />
+        </Entry>
+      )
+    })}
   </div>
 )
 
