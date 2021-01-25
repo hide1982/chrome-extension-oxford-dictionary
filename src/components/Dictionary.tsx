@@ -61,7 +61,9 @@ const Dictionary: React.FC = () => {
     (state) => state.dictionary
   )
   const { word, lexicalEntries } = words[wordIndex].value
-  const pronunciation = getIpaPronunciation(lexicalEntries[0].pronunciations)
+  const pronunciation = getIpaPronunciation(
+    lexicalEntries[0].entries[0].pronunciations
+  )
 
   return (
     <Container>
