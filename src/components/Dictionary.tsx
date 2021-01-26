@@ -47,7 +47,7 @@ const ScrollArea = styled.div`
   padding: 0 16px 16px;
 `
 
-const playAudio = (audioFile: Pronunciation["audioFile"]) => () => {
+const playAudio = (audioFile: Pronunciation["audioFile"]) => {
   const audio = new Audio(audioFile)
   audio.play()
 }
