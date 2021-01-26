@@ -4,10 +4,6 @@ import styled from "styled-components"
 import { Entry, LexicalEntryWithId } from "@/types"
 import Typography from "@/components/Typography"
 
-interface Props {
-  lexicalEntries: LexicalEntryWithId[]
-}
-
 const SHOW_ENTRY_INDEX = 0
 
 const Entry = styled.div`
@@ -28,7 +24,11 @@ const DefinitionIndex = styled(Typography)`
   margin-right: 4px;
 `
 
-const Entries: React.FC<{ value: Entry[] }> = ({ value: entries }) => {
+interface EntryProps {
+  value: Entry[]
+}
+
+const Entries: React.FC<EntryProps> = ({ value: entries }) => {
   const senses = entries[SHOW_ENTRY_INDEX].senses
 
   if (!senses) return null
@@ -55,6 +55,10 @@ const Entries: React.FC<{ value: Entry[] }> = ({ value: entries }) => {
       ))}
     </div>
   )
+}
+
+interface Props {
+  lexicalEntries: LexicalEntryWithId[]
 }
 
 const WordContent: React.FC<Props> = ({ lexicalEntries }) => (

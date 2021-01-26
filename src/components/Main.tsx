@@ -57,7 +57,7 @@ const Main: React.FC = () => {
     if (!selectionValue?.word) return
 
     dispatch(fetchWord(selectionValue.word))
-  }, [selectionValue?.word])
+  }, [selectionValue?.word, dispatch])
 
   if (!isShow || !selectionValue) return null
 
